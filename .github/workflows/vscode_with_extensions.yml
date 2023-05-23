@@ -38,7 +38,7 @@ jobs:
 #          name: data-artifact
 #          path: /path/to/data/directory
 
-      - name: List directory contents
-        run: |
-          pwd
-          ls -la
+#      - name: List directory contents
+#        run: |
+#          pwd
+#          ls -la
