@@ -24,13 +24,13 @@ jobs:
         pwd
         ls -la
         
-#    - name: Download Extensions
-#      run: |
-#        cat versions.json | jq -c '.[]' | while read -r extension; do
-#          ext_name=$(echo $extension | jq -r '.name')
-#          ext_version=$(echo $extension | jq -r '.version')
-#          code-server --install-extension $ext_name@$ext_version
-#        done
+    - name: Download Extensions
+      run: |
+        cat versions.json | jq -c '.[]' | while read -r extension; do
+          ext_name=$(echo $extension | jq -r '.name')
+          ext_version=$(echo $extension | jq -r '.version')
+          echo $ext_name@$ext_version
+        done
 
 #    - name: Create Artifact
 #      run: |
