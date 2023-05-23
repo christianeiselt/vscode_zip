@@ -1,0 +1,41 @@
+name: CICD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Download Visual Studio Code
+      run: |
+        curl -L -o vscode.tar.gz https://update.code.visualstudio.com/${{ matrix.vscode_version }}/linux-x64/stable
+        tar -xzf vscode.tar.gz
+
+#    - name: Download Extensions
+#      run: |
+#        code-server --install-extension extension1@version1
+#        code-server --install-extension extension2@version2
+#        # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
+
+    - name: Create Artifact
+      run: |
+        tar -czf vscode_with_extensions.tar.gz vscode/
+        echo "::set-output name=artifact_path::vscode_with_extensions.tar.gz"
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: vscode_with_extensions
+        path: ${{ steps.create_artifact.outputs.artifact_path }}
