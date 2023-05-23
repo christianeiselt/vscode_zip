@@ -21,8 +21,6 @@ jobs:
     - name: Download Visual Studio Code
       run: |
         curl -O https://code.visualstudio.com/VSCode-win32-x64-$(cat versions.json | jq -r '.vscode_version').zip
-        pwd
-        ls -la
         
     - name: Download Extensions
       run: |
@@ -42,3 +40,9 @@ jobs:
 #      with:
 #        name: vscode_with_extensions
 #        path: ${{ steps.create_artifact.outputs.artifact_path }}
+
+    - name: List directory content
+      run: |
+        pwd
+        ls -la
+
