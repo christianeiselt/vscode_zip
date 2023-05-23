@@ -1,0 +1,46 @@
+name: CICD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Download Visual Studio Code
+      run: |
+        $vscodeVersion = $env:VS_CODE_VERSION
+        $url = "https://update.code.visualstudio.com/$($vscodeVersion)/win32-x64/stable"
+        Invoke-WebRequest -Uri $url -OutFile vscode.zip
+        Expand-Archive -Path vscode.zip -DestinationPath vscode
+
+    - name: Download Extensions
+      run: |
+        $extensions = @("esbenp.prettier-vscode@8.0.0")
+        foreach ($ext in $extensions) {
+          code-server --install-extension $ext
+        }
+        # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
+
+    - name: Create Artifact
+      run: |
+        Compress-Archive -Path vscode -DestinationPath vscode_with_extensions.zip
+        echo "::set-output name=artifact_path::vscode_with_extensions.zip"
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: vscode_with_extensions
+        path: ${{ steps.create_artifact.outputs.artifact_path }}
