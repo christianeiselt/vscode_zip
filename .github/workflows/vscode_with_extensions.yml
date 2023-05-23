@@ -18,15 +18,19 @@ jobs:
       - name: Install Visual Studio Code
         run: |
           curl -O 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-archive'
-          ls -la
+          Get-ChildItem .
 #          tar -xf vscode.tar.gz
 #          ls -la
 #          sudo mv vscode-* /usr/share/code
 
-#      - name: Install Extensions
+#      - name: Download Extensions
 #        run: |
-#          code-server --install-extension extension1
-#          code-server --install-extension extension2
+#          $extensions = @("extension1@version1", "extension2@version2")
+#          foreach ($ext in $extensions) {
+#            code-server --install-extension $ext
+#         }
+       # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
+
 
 #      - name: Archive Data Directory
 #        uses: actions/upload-artifact@v2
