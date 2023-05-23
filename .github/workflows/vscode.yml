@@ -21,6 +21,8 @@ jobs:
     - name: Download Visual Studio Code
       run: |
         curl -L -o vscode.tar.gz https://code.visualstudio.com/VSCode-win32-x64-$(cat versions.json | jq -r '.vscode_version').zip
+        pwd
+        ls -la
         
 #    - name: Download Extensions
 #      run: |
