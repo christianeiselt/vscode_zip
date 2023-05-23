@@ -20,11 +20,11 @@ jobs:
 
     - name: Download Visual Studio Code
       run: |
-        curl -O https://code.visualstudio.com/VSCode-win32-x64-$(cat versions.json | jq -r '.vscode_version').zip
+        curl -O https://code.visualstudio.com/VSCode-win32-x64-$(cat package-lock.json | jq -r '.vscode_version').zip
         
     - name: Download Extensions
       run: |
-        cat versions.json | jq -c '.extensions[]' | while read -r extension; do
+        cat package-lock.json | jq -c '.extensions[]' | while read -r extension; do
           ext_name=$(echo $extension | jq -r '.name')
           ext_publisher=$(echo $extension | jq -r '.publisher')
           ext_version=$(echo $extension | jq -r '.version')
