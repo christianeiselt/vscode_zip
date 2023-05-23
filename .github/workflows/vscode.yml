@@ -28,7 +28,7 @@ jobs:
           ext_name=$(echo $extension | jq -r '.name')
           ext_publisher=$(echo $extension | jq -r '.publisher')
           ext_version=$(echo $extension | jq -r '.version')
-          curl -O https://$ext_publisher.gallery.vsassets.io/_apis/public/gallery/publisher/$ext_publisher/extension/$ext_name/$ext_version/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+          curl -L -o $ext_publisher.$ext_name-$ext_version.vsix https://$ext_publisher.gallery.vsassets.io/_apis/public/gallery/publisher/$ext_publisher/extension/$ext_name/$ext_version/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
         done
 #    - name: Create Artifact
 #      run: |
