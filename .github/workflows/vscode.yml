@@ -24,6 +24,19 @@ jobs:
         pwd
         ls -la
         
+    - name: dotnet-json-extractorcs
+      id: dotnet-json-extractorcs
+      uses: chrisfactory/GithubActions@1.0.0.4
+      with:
+        path: versions.json
+        properties: 'name;version;contentVersion;parameters.registryLocation;parameters.registryName.value'
+#        propertyAlias: 'contentVersion:version;parameters.registryName.value:registryName'
+     
+
+    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.parameters-registryLocation }}
+    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.registryName}}
+    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.version }} 
+
     - id: set_var
       run: |
           content=`cat ./versions.json`
