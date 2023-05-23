@@ -17,14 +17,13 @@ jobs:
 
       - name: Install Visual Studio Code
         run: |
-          wget -q https://update.code.visualstudio.com/latest/linux-x64/stable -O vscode.deb
-          sudo dpkg -i vscode.deb
-          sudo apt-get -f install
-
-      - name: Install Extensions
-        run: |
-          code-server --install-extension extension1
-          code-server --install-extension extension2
+          curl -L -o vscode.tar.gz https://url-zum-tar.gz-archiv
+          tar -xf vscode.tar.gz
+          sudo mv vscode-* /usr/share/code
+#      - name: Install Extensions
+#        run: |
+#          code-server --install-extension extension1
+#          code-server --install-extension extension2
 
 #      - name: Archive Data Directory
 #        uses: actions/upload-artifact@v2
