@@ -7,17 +7,17 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+#      - name: Set up Node.js
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: '14'
 
       - name: Install Visual Studio Code
         run: |
-          curl -O https://code.visualstudio.com/VSCode-win32-x64-$(cat package-lock.json | jq -r '.vscode_version').zip          ls -la
+          curl -O https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-archive
           ls -la
 #          tar -xf vscode.tar.gz
 #          ls -la
