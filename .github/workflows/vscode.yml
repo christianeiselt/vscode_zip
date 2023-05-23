@@ -20,12 +20,7 @@ jobs:
         node-version: 14
 
     - name: Download Visual Studio Code
-      run: |
-        $vscodeVersion = $env:VS_CODE_VERSION
-        $url = "https://update.code.visualstudio.com/$($vscodeVersion)/win32-x64/stable"
-        Invoke-WebRequest -Uri $url -OutFile vscode.zip
-        Expand-Archive -Path vscode.zip -DestinationPath vscode
-
+      run: ./update.ps1 '.'
     - name: Download Extensions
       run: |
         $extensions = @("esbenp.prettier-vscode@8.0.0")
