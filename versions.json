@@ -1,6 +1,6 @@
 {
   "vscode_version": "1.78.1",
   "extensions": [
-    { "name": "esbenp.prettier-vscode", "version": "8.0.0" }
+    { "name": "prettier-vscode", "publisher": "esbenp", "version": "8.0.0" }
   ]
 }
