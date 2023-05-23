@@ -17,9 +17,12 @@ jobs:
 
       - name: Install Visual Studio Code
         run: |
-          curl -L -o vscode.tar.gz https://update.code.visualstudio.com/latest/linux-x64/stable
-          tar -xf vscode.tar.gz
-          sudo mv vscode-* /usr/share/code
+          curl -O https://code.visualstudio.com/VSCode-win32-x64-$(cat package-lock.json | jq -r '.vscode_version').zip          ls -la
+          ls -la
+#          tar -xf vscode.tar.gz
+#          ls -la
+#          sudo mv vscode-* /usr/share/code
+
 #      - name: Install Extensions
 #        run: |
 #          code-server --install-extension extension1
