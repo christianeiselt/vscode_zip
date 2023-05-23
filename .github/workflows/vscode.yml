@@ -20,24 +20,23 @@ jobs:
 
     - name: Download Visual Studio Code
       run: |
-        curl -L -o vscode.tar.gz https://update.code.visualstudio.com/1.78.1/win32-x64/stable
-        tar -xzf vscode.tar.gz
+        curl -L -o vscode.tar.gz https://code.visualstudio.com/VSCode-win32-x64-1.78.2.zip
+        
+#    - name: Download Extensions
+#      run: |
+#        cat versions.json | jq -c '.[]' | while read -r extension; do
+#          ext_name=$(echo $extension | jq -r '.name')
+#          ext_version=$(echo $extension | jq -r '.version')
+#          code-server --install-extension $ext_name@$ext_version
+#        done
 
-    - name: Download Extensions
-      run: |
-        cat versions.json | jq -c '.[]' | while read -r extension; do
-          ext_name=$(echo $extension | jq -r '.name')
-          ext_version=$(echo $extension | jq -r '.version')
-          code-server --install-extension $ext_name@$ext_version
-        done
+#    - name: Create Artifact
+#      run: |
+#        tar -czf vscode_with_extensions.tar.gz vscode/
+#        echo "::set-output name=artifact_path::vscode_with_extensions.tar.gz"
 
-    - name: Create Artifact
-      run: |
-        tar -czf vscode_with_extensions.tar.gz vscode/
-        echo "::set-output name=artifact_path::vscode_with_extensions.tar.gz"
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: vscode_with_extensions
-        path: ${{ steps.create_artifact.outputs.artifact_path }}
+#    - name: Upload Artifact
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: vscode_with_extensions
+#        path: ${{ steps.create_artifact.outputs.artifact_path }}
