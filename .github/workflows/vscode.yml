@@ -20,14 +20,15 @@ jobs:
         node-version: 14
 
     - name: Download Visual Studio Code
-      run: ./update.ps1 '.'
-    - name: Download Extensions
-      run: |
-        $extensions = @("esbenp.prettier-vscode@8.0.0")
-        foreach ($ext in $extensions) {
-          code-server --install-extension $ext
-        }
-        # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
+      run: ./update.ps1 './vscode'
+
+    #- name: Download Extensions
+    #  run: |
+    #    $extensions = @("esbenp.prettier-vscode@8.0.0")
+    #    foreach ($ext in $extensions) {
+    #      code-server --install-extension $ext
+    #    }
+    #    # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
 
     - name: Create Artifact
       run: |
