@@ -4,39 +4,40 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: 14
 
     - name: Download Visual Studio Code
-      run: ./update.ps1 './vscode'
+      run: |
+        curl -L -o vscode.tar.gz https://update.code.visualstudio.com/$(cat versions.json/vscode_version)/linux-x64/stable
+        tar -xzf vscode.tar.gz
 
-    #- name: Download Extensions
-    #  run: |
-    #    $extensions = @("esbenp.prettier-vscode@8.0.0")
-    #    foreach ($ext in $extensions) {
-    #      code-server --install-extension $ext
-    #    }
-    #    # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
+    - name: Download Extensions
+      run: |
+        cat versions.json | jq -c '.[]' | while read -r extension; do
+          ext_name=$(echo $extension | jq -r '.name')
+          ext_version=$(echo $extension | jq -r '.version')
+          code-server --install-extension $ext_name@$ext_version
+        done
 
     - name: Create Artifact
       run: |
-        Compress-Archive -Path ./vscode -DestinationPath ./vscode_with_extensions.zip
-        echo "::set-output name=artifact_path::vscode_with_extensions.zip"
+        tar -czf vscode_with_extensions.tar.gz vscode/
+        echo "::set-output name=artifact_path::vscode_with_extensions.tar.gz"
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: vscode_with_extensions
         path: ${{ steps.create_artifact.outputs.artifact_path }}
