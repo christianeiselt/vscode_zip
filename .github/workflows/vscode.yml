@@ -13,14 +13,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14
+#    - name: Set up Node.js
+#      uses: actions/setup-node@v3
+#      with:
+#        node-version: 14
 
     - name: Download Visual Studio Code
       run: |
-        curl -L https://code.visualstudio.com/VSCode-win32-x64-$(cat versions.json | jq -r '.vscode_version').zip
+        wget https://code.visualstudio.com/VSCode-win32-x64-$(cat versions.json | jq -r '.vscode_version').zip
         pwd
         ls -la
         
