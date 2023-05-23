@@ -33,10 +33,9 @@ jobs:
 #        propertyAlias: 'contentVersion:version;parameters.registryName.value:registryName'
      
 
-    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.parameters-registryLocation }}
-    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.registryName}}
-    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.version }} 
-
+    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.extensions[0].name }}
+    - run: echo ${{ steps.dotnet-json-extractorcs.outputs.extensions[0].version }}
+    
     - id: set_var
       run: |
           content=`cat ./versions.json`
