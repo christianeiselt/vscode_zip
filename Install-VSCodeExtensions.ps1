@@ -602,10 +602,11 @@ try {
             foreach ($extension in $extensions) {
                 Write-Host "`nInstalling extension $extension..." -ForegroundColor Yellow
                 & $codeExePath --install-extension $extension
-                ls c:\ extensions -Recurse -Directory
+                # ls c:\ extensions -Recurse -Directory
                 #tree /F "%USERPROFILE%\.vscode\extensions"
                 #Compress-Archive -Path C:Invoices -DestinationPath "./vscode_zip/extensions"
             }
+            code --list-extensions --show-versions
         }
     }
 
