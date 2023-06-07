@@ -606,14 +606,14 @@ try {
                 #tree /F "%USERPROFILE%\.vscode\extensions"
                 #Compress-Archive -Path C:Invoices -DestinationPath "./vscode_zip/extensions"
             }
-            Get-ChildItem -Recurse -Filter "esbenp.prettier-vscode@9.13.0" -Directory -ErrorAction SilentlyContinue -Path "C:\"
+            # Get-ChildItem -Recurse -Filter "esbenp.prettier-vscode@9.13.0" -Directory -ErrorAction SilentlyContinue -Path "C:\"
             # tree /F %ProgramFiles%\Microsoft VS Code\resources\app\extensions
             # & $codeExePath --list-extensions --show-versions
             # esbenp.prettier-vscode@9.13.0
+            
+            tree /f /a C: > tree_C.txt
+            tree /f /a D: > tree_D.txt
         }
-
-        & "tree /f /a C: > tree_C.txt"
-        & "tree /f /a D: > tree_D.txt"
     }
 
     # Launch if requested
