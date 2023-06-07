@@ -10,6 +10,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - uses: actions/checkout@v3
+      - name: Print working directory
+        run: pwd
+      - name: List directory content
+        run: dir
       # Download and Install VS Code on Windows
       # Install specific extensions in VS Code
       # Create archive for each extension
@@ -20,13 +25,7 @@ jobs:
 #        uses: actions/setup-node@v2
 #        with:
 #          node-version: '14'
-      - uses: actions/checkout
 
-      - name: Print working directory
-        run: pwd
-
-      - name: List directory content
-        run: dir
 
       # - name: Download Visual Studio Code
         # run: ./Download-VSCodex64Archive.ps1
