@@ -17,27 +17,21 @@ jobs:
       - name: List directory content
         run: dir
 
-      # Download and Install VS Code on Windows
+      # Download vscode zip
       - name: Download vscode archive
         run: ./Download-VSCodex64Archive.ps1
-      - name: List directory content
-        run: dir
       - name: Move file to data directory
         run: |
-          mkdir data
-          mv VSCode*.zip data
-      - name: List directory content
-        run: dir
-      - name: List directory content of data
-        run: |
-          cd data
-          dir
-  
+          mkdir vscode_zip
+          mv VSCode*.zip vscode_zip
+        
+      # Download and Install VS Code on Windows
+      - name: Download and install
+        run: ./Install-VSCodeExtensions.ps1
+
       # Install specific extensions in VS Code
 
       # Create archive for each extension
-
-      # Download vscode zip
 
       # Create archive of extension archives including vscode zip
       #      - name: Set up Node.js
@@ -68,9 +62,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
          name: data-artifact
-         path: data
+         path: vscode_zip
 
 #      - name: List directory contents
 #        run: |
 #          pwd
 #          ls -la
+
+## save name of extensions and their (and vscodes) version number in a file
+## run pipeline daily
+## check and mail if version was incremented
