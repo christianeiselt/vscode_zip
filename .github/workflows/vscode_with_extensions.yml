@@ -16,7 +16,10 @@ jobs:
         run: pwd
       - name: List directory content
         run: dir
+
       # Download and Install VS Code on Windows
+      - name: Download vscode archive
+        run: ./Download-VSCodex64Archive.ps1
       # Install specific extensions in VS Code
       # Create archive for each extension
       # Download vscode zip
