@@ -20,6 +20,8 @@ jobs:
 #        uses: actions/setup-node@v2
 #        with:
 #          node-version: '14'
+      - name: Checkout main branch
+        uses: actions/checkout
 
       - name: Print working directory
         run: pwd
