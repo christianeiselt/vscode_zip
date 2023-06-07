@@ -30,7 +30,7 @@ jobs:
 
       # Download and Install VS Code and extensions on Windows
       - name: Download and install
-        run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid)
+        run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
       # Create archive of extension archives including vscode zip
       #      - name: Set up Node.js
