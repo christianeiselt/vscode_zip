@@ -23,7 +23,7 @@ jobs:
 
       - name: Download Visual Studio Code
         run: |
-          Get-ChildItem .
+          Get-ChildItem
 #          tar -xf vscode.tar.gz
 #          ls -la
 #          sudo mv vscode-* /usr/share/code
