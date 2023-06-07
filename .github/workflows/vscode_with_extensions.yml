@@ -19,17 +19,20 @@ jobs:
 
       # Download vscode zip
       - name: Download vscode archive
-        run: ./Download-VSCodex64Archive.ps1
+        run: Invoke-WebRequest -URI 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-archive'
+      # run: ./Download-VSCodex64Archive.ps1
       - name: Move file to data directory
         run: |
+          dir
           mkdir vscode_zip
           mv VSCode*.zip vscode_zip
-        
+
+      - name: Download vscode install script
+        run: Invoke-WebRequest https://raw.githubusercontent.com/PowerShell/vscode-powershell/main/scripts/Install-VSCode.ps1)
+
       # Download and Install VS Code on Windows
       - name: Download and install
-        run: |
-          Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/PowerShell/vscode-powershell/main/scripts/Install-VSCode.ps1)
-          Install-VSCode.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid)
+        run: ./Install-VSCode.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid)
  #    Install-Script Install-VSCode -Scope CurrentUser; Install-VSCode.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid)
 
       #./Install-VSCodeExtensions.ps1
