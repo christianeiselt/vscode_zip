@@ -22,9 +22,10 @@ jobs:
 #          node-version: '14'
 
       - name: Download Visual Studio Code
-        run: |
-          $current_directory = pwd
-          Get-ChildItem -Path $current_directory
+        run: pwd
+          # |
+          # $current_directory = pwd
+          # Get-ChildItem -Path $current_directory
 #          tar -xf vscode.tar.gz
 #          ls -la
 #          sudo mv vscode-* /usr/share/code
