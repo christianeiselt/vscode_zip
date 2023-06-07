@@ -26,7 +26,7 @@ jobs:
           mv VSCode*.zip vscode_zip
 
       - name: Download vscode install script
-        run: Invoke-WebRequest https://raw.githubusercontent.com/PowerShell/vscode-powershell/main/scripts/Install-VSCode.ps1
+        run: Invoke-WebRequest https://raw.githubusercontent.com/PowerShell/vscode-powershell/main/scripts/Install-VSCode.ps1 -Outfile Install-VSCode.ps1
 
       # Download and Install VS Code on Windows
       - name: Download and install
