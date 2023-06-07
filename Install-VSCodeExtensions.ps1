@@ -606,7 +606,7 @@ try {
                 #tree /F "%USERPROFILE%\.vscode\extensions"
                 #Compress-Archive -Path C:Invoices -DestinationPath "./vscode_zip/extensions"
             }
-            code --list-extensions --show-versions
+            & $codeExePath --list-extensions --show-versions
         }
     }
 
