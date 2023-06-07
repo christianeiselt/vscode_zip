@@ -28,7 +28,8 @@ jobs:
       # Download and Install VS Code on Windows
       - name: Download and install
         run: |
-          Install-Script Install-VSCode -Scope CurrentUser; Install-VSCode.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid)
+          iex (iwr https://raw.githubusercontent.com/PowerShell/vscode-powershell/main/scripts/Install-VSCode.ps1) -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid)
+ #    Install-Script Install-VSCode -Scope CurrentUser; Install-VSCode.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid)
 
       #./Install-VSCodeExtensions.ps1
 
