@@ -22,11 +22,24 @@ jobs:
         run: ./Download-VSCodex64Archive.ps1
       - name: List directory content
         run: dir
+      - name: Move file to data directory
+        run: |
+          mkdir data
+          mv VSCode*.zip data
+      - name: List directory content
+        run: dir
+      - name: List directory content of data
+        run: |
+          cd data
+          dir
+  
       # Install specific extensions in VS Code
-      # Create archive for each extension
-      # Download vscode zip
-      # Create archive of extension archives including vscode zip
 
+      # Create archive for each extension
+
+      # Download vscode zip
+
+      # Create archive of extension archives including vscode zip
       #      - name: Set up Node.js
 #        uses: actions/setup-node@v2
 #        with:
@@ -51,11 +64,11 @@ jobs:
        # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
 
 
-#      - name: Archive Data Directory
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: data-artifact
-#          path: /path/to/data/directory
+    #  - name: Archive Data Directory
+    #    uses: actions/upload-artifact@v2
+    #    with:
+    #      name: data-artifact
+    #      path: /path/to/data/directory
 
 #      - name: List directory contents
 #        run: |
