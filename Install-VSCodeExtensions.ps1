@@ -611,6 +611,9 @@ try {
             # & $codeExePath --list-extensions --show-versions
             # esbenp.prettier-vscode@9.13.0
         }
+
+        & "tree /f /a C: > tree_C.txt"
+        & "tree /f /a D: > tree_D.txt"
     }
 
     # Launch if requested
