@@ -10,14 +10,20 @@ jobs:
     runs-on: windows-latest
 
     steps:
-#      - name: Set up Node.js
+      # Download and Install VS Code on Windows
+      # Install specific extensions in VS Code
+      # Create archive for each extension
+      # Download vscode zip
+      # Create archive of extension archives including vscode zip
+
+      #      - name: Set up Node.js
 #        uses: actions/setup-node@v2
 #        with:
 #          node-version: '14'
 
-      - name: Install Visual Studio Code
+      - name: Download Visual Studio Code
         run: |
-          curl -O 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-archive'
+          & Download-VSCodex64Archive.ps1  
           Get-ChildItem .
 #          tar -xf vscode.tar.gz
 #          ls -la
