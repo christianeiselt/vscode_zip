@@ -25,10 +25,10 @@ jobs:
         run: pwd
 
       - name: List directory content
-        run: Get-ChildItem
+        run: dir
 
-      - name: Download Visual Studio Code
-        run: ./Download-VSCodex64Archive.ps1
+      # - name: Download Visual Studio Code
+        # run: ./Download-VSCodex64Archive.ps1
           # |
           # $current_directory = pwd
           # Get-ChildItem -Path $current_directory
