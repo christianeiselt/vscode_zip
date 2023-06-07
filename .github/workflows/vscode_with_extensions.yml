@@ -65,7 +65,7 @@ jobs:
 
 
       - name: Archive Data Directory
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
          name: data-artifact
          path: data
