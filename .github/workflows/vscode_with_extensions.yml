@@ -21,8 +21,14 @@ jobs:
 #        with:
 #          node-version: '14'
 
-      - name: Download Visual Studio Code
+      - name: Print working directory
         run: pwd
+
+      - name: List directory content
+        run: Get-ChildItem
+
+      - name: Download Visual Studio Code
+        run: ./Download-VSCodex64Archive.ps1
           # |
           # $current_directory = pwd
           # Get-ChildItem -Path $current_directory
