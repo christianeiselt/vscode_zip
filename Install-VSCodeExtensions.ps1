@@ -609,7 +609,7 @@ try {
 
             Get-Location
             Get-ChildItem
-            code --list-extensions | % { "code --install-extension $_" }
+            $codeExePath --list-extensions | % { "code --install-extension $_" }
             # Get-ChildItem -Recurse -Filter "esbenp.prettier-vscode@9.13.0" -Directory -ErrorAction SilentlyContinue -Path "C:\"
             # tree /F %ProgramFiles%\Microsoft VS Code\resources\app\extensions
             # & $codeExePath --list-extensions --show-versions
