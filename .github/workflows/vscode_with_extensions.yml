@@ -23,7 +23,6 @@ jobs:
 
       - name: Download Visual Studio Code
         run: |
-          pwd
           Get-ChildItem .
 #          tar -xf vscode.tar.gz
 #          ls -la
