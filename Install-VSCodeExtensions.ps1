@@ -611,14 +611,17 @@ try {
     $extensions_installed = Get-ChildItem "C:\Users\runneradmin\.vscode\extensions"
     foreach ($ext_inst in $extensions_installed)
     {
-        Write-Host $ext_inst.FullName
-        $extension_name = $($ext_inst.Name).Substring(0, $($ext_inst.Name).lastIndexOf('-'))
-        $extension_version = $ext_inst.Name.Split('-')[-1]
-        $extension_hashtable = @{$extension_name = $extension_version};
-        [void]$extensions_list.Add($extension_hashtable)
-
-        Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.FullName))"
-        Compress-Archive -Path $ext_inst.FullName -DestinationPath "./vscode/extensions/$($ext_inst.Name).zip"
+        if ($ext_inst.Name -ne "extensions.json")
+        {
+            Write-Host $ext_inst.FullName
+            $extension_name = $($ext_inst.Name).Substring(0, $($ext_inst.Name).lastIndexOf('-'))
+            $extension_version = $ext_inst.Name.Split('-')[-1]
+            $extension_hashtable = @{$extension_name = $extension_version};
+            [void]$extensions_list.Add($extension_hashtable)
+    
+            Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.FullName))"
+            Compress-Archive -Path $ext_inst.FullName -DestinationPath "./vscode/extensions/$($ext_inst.Name).zip"
+        }
     }
 
     $vscode_version = ""
