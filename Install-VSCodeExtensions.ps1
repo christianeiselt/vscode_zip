@@ -607,7 +607,7 @@ try {
     }
 
     # Archive each installed extension
-    $extensions_installed = Get-ChildItem "C:\Users\runneradmin\.vscode\extensions")
+    $extensions_installed = Get-ChildItem "C:\Users\runneradmin\.vscode\extensions"
     foreach ($ext_inst in $extensions_installed)
     {
         $extension_name = $ext_inst.Name
