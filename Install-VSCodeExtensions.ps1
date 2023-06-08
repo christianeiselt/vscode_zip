@@ -632,7 +632,7 @@ try {
     }
     $jsonRepresentation = $($packages | ConvertTo-Json)
     Write-Host $jsonRepresentation
-    $jsonRepresentation | ConvertTo-Json -depth 100 | Set-Content ".\packages.json"
+    $jsonRepresentation | ConvertTo-Json -depth 100 | Format-Json | Set-Content ".\packages.json"
 
     # Launch if requested
     if ($LaunchWhenDone) {
