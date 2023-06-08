@@ -1,1 +1,35 @@
-"{\r\n  \"vscode_version\": \"1.78.2\",\r\n  \"extensions\": [\r\n    {\r\n      \"eamodio.gitlens\": \"13.6.0\"\r\n    },\r\n    {\r\n      \"esbenp.prettier-vscode\": \"9.13.0\"\r\n    },\r\n    {\r\n      \"ms-vscode.powershell\": \"2023.6.0\"\r\n    },\r\n    {\r\n      \"oderwat.indent-rainbow\": \"8.3.1\"\r\n    },\r\n    {\r\n      \"pspester.pester-test\": \"2023.4.0\"\r\n    },\r\n    {\r\n      \"redhat.vscode-yaml\": \"1.13.0\"\r\n    },\r\n    {\r\n      \"streetsidesoftware.code-spell-checker\": \"2.20.4\"\r\n    },\r\n    {\r\n      \"vincaslt.highlight-matching-tag\": \"0.11.0\"\r\n    },\r\n    {\r\n      \"vivaxy.vscode-conventional-commits\": \"1.25.0\"\r\n    },\r\n    {\r\n      \"vscode-icons-team.vscode-icons\": \"12.4.0\"\r\n    }\r\n  ]\r\n}"
+{
+    "vscode_version": "1.78.2",
+    "extensions": [
+      {
+        "eamodio.gitlens": "13.6.0"
+      },
+      {
+        "esbenp.prettier-vscode": "9.13.0"
+      },
+      {
+        "ms-vscode.powershell": "2023.6.0"
+      },
+      {
+        "oderwat.indent-rainbow": "8.3.1"
+      },
+      {
+        "pspester.pester-test": "2023.4.0"
+      },
+      {
+        "redhat.vscode-yaml": "1.13.0"
+      },
+      {
+        "streetsidesoftware.code-spell-checker": "2.20.4"
+      },
+      {
+        "vincaslt.highlight-matching-tag": "0.11.0"
+      },
+      {
+        "vivaxy.vscode-conventional-commits": "1.25.0"
+      },
+      {
+        "vscode-icons-team.vscode-icons": "12.4.0"
+      }
+    ]
+}
