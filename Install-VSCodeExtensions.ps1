@@ -603,7 +603,7 @@ try {
                 Write-Host "`nInstalling extension $extension..." -ForegroundColor Yellow
                 & $codeExePath --install-extension $extension
                 # $TARGET = Resolve-Path "\\MACHINE1\c$\ProgramData\Test\12.*\Data\" | Select -ExpandProperty Path
-                Write-Host $(Get-ChildItem)
+                Write-Host $(Get-ChildItem -Path "D:\Users\runneradmin\.vscode\extensions\")
                 Test-Path "D:\Users\runneradmin\.vscode\extensions\$extension-*"
                 Compress-Archive -Path "D:\Users\runneradmin\.vscode\extensions\$extension-*" -DestinationPath "./vscode_zip/extensions"
             }
