@@ -40,7 +40,7 @@ jobs:
 
       # Download and Install VS Code and extensions on Windows
       - name: Download and install
-        run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./packages.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
+        run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./extensions.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
       - name: Archive extensions and update packages.json
         run: ./Archive-VSCodeExtensions.ps1
