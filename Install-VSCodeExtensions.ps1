@@ -613,13 +613,14 @@ try {
     {
         $extension_name = $($ext_inst.Name).Substring(0, $($ext_inst.Name).lastIndexOf('-'))
         $extension_version = $ext_inst.Name.Split('-')[-1]
-        $extensions_list.Add($extension_name, $extension_version)
+        $extension_hashtable = @{$extension_name = $extension_version};
+        $extensions_list.Add($extension_hashtable)
         Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.FullName))"
         Compress-Archive -Path $ext_inst.FullName -DestinationPath "./vscode/extensions/$($ext_inst.Name).zip"
     }
 
     $vscode_version = ""
-    $package_lock = @{
+    [System.Collections.Hashtable]$package_lock = @{
         "vscode_version" = "$vscode_version";
         "extensions" = $extensions_list
     }

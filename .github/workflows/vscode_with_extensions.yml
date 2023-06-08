@@ -32,8 +32,8 @@ jobs:
       - name: Download and install
         run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
-      - name: Save tree file for D to artifact
-        run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
+      # - name: Save tree file for D to artifact
+      #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
 
       # Create archive of extension archives including vscode zip
       #      - name: Set up Node.js
