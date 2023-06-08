@@ -602,7 +602,8 @@ try {
             foreach ($extension in $extensions) {
                 Write-Host "`nInstalling extension $extension..." -ForegroundColor Yellow
                 & $codeExePath --install-extension $extension
-                Compress-Archive -Path D:\runneradmin\.vscode\extensions\$extension* -DestinationPath "./vscode_zip/extensions"
+                # $TARGET = Resolve-Path "\\MACHINE1\c$\ProgramData\Test\12.*\Data\" | Select -ExpandProperty Path
+                Compress-Archive -Path "D:\Users\runneradmin\.vscode\extensions\$extension-*" -DestinationPath "./vscode_zip/extensions"
             }
         }
     }
