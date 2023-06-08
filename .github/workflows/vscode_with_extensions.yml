@@ -42,10 +42,13 @@ jobs:
           path: vscode
 
       - name: Remove artifiact directory
-        run: rm -rf .\vscode
+        run: Remove-Item -recurse -force vscode
 
-      - name: Save tree file for D to artifact
-        run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
+      - name: List directory tree
+        run: tree /f /a
+
+      # - name: Save tree file for D to artifact
+      #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
 
       # - name: GitHub Commit & Push
       #   uses: actions-js/push@v1.4
