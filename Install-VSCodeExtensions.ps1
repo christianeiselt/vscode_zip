@@ -632,7 +632,7 @@ try {
         "applications" = @(@{"version" = "$vscode_version"; "uid" = "VSCode-win32-x64"});
         "extensions" = $extensions_list
     }
-    $packages_sorted = $packages.GetEnumerator() | Sort Name
+    $packages_sorted = $packages#.GetEnumerator() | Sort Name
     $jsonRepresentation = $( $packages_sorted | ConvertTo-Json)
     Write-Host $jsonRepresentation
     $jsonRepresentation | Set-Content ".\packages.json"
