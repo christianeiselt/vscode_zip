@@ -606,7 +606,13 @@ try {
         }
     }
 
-    [System.Collections.ArrayList]$extensions_list = @()
+    $vscode_basename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
+    $vscode_version = "$($vscode_basename.Split('-')[-1])"
+    [System.Collections.ArrayList]$packages_list = @({
+        "uid" = $vscode_basename;
+        "version" = $vscode_version}
+    )
+
     # Archive each installed extension
     $extensions_installed = Get-ChildItem "C:\Users\runneradmin\.vscode\extensions"
     foreach ($ext_inst in $extensions_installed)
@@ -616,23 +622,17 @@ try {
             Write-Host $ext_inst.FullName
             $extension_name = $($ext_inst.Name).Substring(0, $($ext_inst.Name).lastIndexOf('-'))
             $extension_version = $ext_inst.Name.Split('-')[-1]
-            $extension_hashtable = @{
+            [System.Collections.HashTable]$extension_hashtable = @{
                 "uid" = $extension_name;
                 "version" = $extension_version };
-            [void]$extensions_list.Add($extension_hashtable)
+            [void]$packages_list.Add($extension_hashtable)
     
             Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.FullName))"
             Compress-Archive -Path $ext_inst.FullName -DestinationPath "./vscode/extensions/$($ext_inst.Name).zip"
         }
     }
 
-    $vscode_basename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
-    $vscode_version = "$($vscode_basename.Split('-')[-1])"
-    [System.Collections.Hashtable]$packages = @{
-        "vscode_version" = "$vscode_version";
-        "extensions" = $extensions_list
-    }
-    $jsonRepresentation = $($packages | ConvertTo-Json)
+    $jsonRepresentation = $($packages_list | ConvertTo-Json)
     Write-Host $jsonRepresentation
     $jsonRepresentation | Set-Content ".\packages.json"
 
