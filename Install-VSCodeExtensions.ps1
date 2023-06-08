@@ -602,12 +602,21 @@ try {
             foreach ($extension in $extensions) {
                 Write-Host "`nInstalling extension $extension..." -ForegroundColor Yellow
                 & $codeExePath --install-extension $extension
-                # $TARGET = Resolve-Path "\\MACHINE1\c$\ProgramData\Test\12.*\Data\" | Select -ExpandProperty Path
-                Write-Host $(Get-ChildItem -Path "C:\Users\runneradmin\.vscode\extensions\")
-                Test-Path "C:\Users\runneradmin\.vscode\extensions\$extension-*"
-                Compress-Archive -Path "C:\Users\runneradmin\.vscode\extensions\$extension-*" -DestinationPath "./vscode_zip/extensions"
             }
         }
+    }
+
+    # Archive each installed extension
+    $extension_directories = (Get-Item "C:\Users\runneradmin\.vscode\extensions\$extension-*").FullName
+    foreach ($path_installed_extension in $extension_directories)
+    {
+        $installed_extension = Get-Item $path_installed_extension
+        $extension_name = $installed_extension.Name
+
+        # $TARGET = Resolve-Path "\\MACHINE1\c$\ProgramData\Test\12.*\Data\" | Select -ExpandProperty Path
+        # Write-Host $(Get-ChildItem -Path "C:\Users\runneradmin\.vscode\extensions\")
+        # Test-Path "C:\Users\runneradmin\.vscode\extensions\$extension-*"
+        Compress-Archive -Path $installed_extension.FullName -DestinationPath "./vscode_zip/extensions/$extension_name"
     }
 
     # Launch if requested
