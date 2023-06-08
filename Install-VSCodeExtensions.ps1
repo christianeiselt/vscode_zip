@@ -628,12 +628,16 @@ try {
 
     $vscode_basename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
     $vscode_version = "$($vscode_basename.Split('-')[-1])"
-    [System.Collections.Hashtable]$packages = @{
-        "applications" = @(@{"version" = "$vscode_version"; "uid" = "VSCode-win32-x64"});
+    [System.Collections.Hashtable]$packages = [ordered]@{
+        "applications" = @(
+            @{
+                "version" = "$vscode_version";
+                "uid" = "VSCode-win32-x64"
+            }
+        );
         "extensions" = $extensions_list
     }
-    $packages_sorted = $packages#.GetEnumerator() | Sort Name
-    $jsonRepresentation = $( $packages_sorted | ConvertTo-Json)
+    $jsonRepresentation = $( $packages | ConvertTo-Json)
     Write-Host $jsonRepresentation
     $jsonRepresentation | Set-Content ".\packages.json"
 
