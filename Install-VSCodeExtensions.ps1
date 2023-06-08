@@ -610,9 +610,9 @@ try {
     $extensions_installed = Get-ChildItem "C:\Users\runneradmin\.vscode\extensions"
     foreach ($ext_inst in $extensions_installed)
     {
-        $extension_name = $ext_inst.Name.Substring(0, $ext_inst.lastIndexOf('-'))
+        $extension_name = $ext_inst.Name.Substring(0, $ext_inst.Name.lastIndexOf('-'))
         $extension_version = $ext_inst.Name.Split('-')[-1]
-        Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.Name.FullName))"
+        Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.FullName))"
         Compress-Archive -Path $installed_extension.FullName -DestinationPath "./vscode/extensions/$extension_name.zip"
     }
 
