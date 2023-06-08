@@ -616,7 +616,7 @@ try {
         # $TARGET = Resolve-Path "\\MACHINE1\c$\ProgramData\Test\12.*\Data\" | Select -ExpandProperty Path
         # Write-Host $(Get-ChildItem -Path "C:\Users\runneradmin\.vscode\extensions\")
         # Test-Path "C:\Users\runneradmin\.vscode\extensions\$extension-*"
-        Compress-Archive -Path $installed_extension.FullName -DestinationPath "./extensions/$extension_name"
+        Compress-Archive -Path $installed_extension.FullName -DestinationPath "./vscode/extensions/$extension_name"
     }
 
     # Launch if requested

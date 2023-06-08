@@ -22,8 +22,8 @@ jobs:
         run: ./Download-VSCodex64Archive.ps1
       - name: Move file to data directory
         run: |
-          mkdir -p vscode_zip\extensions
-          mv VSCode*.zip vscode_zip
+          mkdir -p vscode\extensions
+          mv VSCode*.zip vscode
 
       # - name: Download vscode install script
       #   run: Invoke-WebRequest https://raw.githubusercontent.com/PowerShell/vscode-powershell/main/scripts/Install-VSCode.ps1 -Outfile Install-VSCode.ps1
@@ -57,16 +57,16 @@ jobs:
        # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
 
       # - name: Save tree file for C to artifact
-      #   run: powershell -command "tree /f /a c:\ > vscode_zip/tree_C.txt"
+      #   run: powershell -command "tree /f /a c:\ > vscode/tree_C.txt"
 
       # - name: Save tree file for D to artifact
-      #   run: powershell -command "tree /f /a d:\ > vscode_zip/tree_D.txt"
+      #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
 
       - name: Archive Data Directory
         uses: actions/upload-artifact@v3
         with:
          name: data-artifact
-         path: vscode_zip
+         path: vscode
 
 #      - name: List directory contents
 #        run: |
