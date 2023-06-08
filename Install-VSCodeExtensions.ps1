@@ -624,7 +624,7 @@ try {
         }
     }
 
-    $vscode_basename = (Get-Item ./vscode_zip/vscode/VSCode-win32-x64-*.zip).BaseName
+    $vscode_basename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
     $vscode_version = "$($vscode_basename.Split('-')[-1])"
     [System.Collections.Hashtable]$packages = @{
         "vscode_version" = "$vscode_version";

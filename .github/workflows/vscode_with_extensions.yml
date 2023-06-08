@@ -32,9 +32,6 @@ jobs:
       - name: Download and install
         run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./packages.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
-      # - name: Save tree file for D to artifact
-      #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
-
       # - name: Save tree file for C to artifact
       #   run: powershell -command "tree /f /a c:\ > vscode/tree_C.txt"
 
@@ -47,10 +44,13 @@ jobs:
       - name: Remove artifiact directory
         run: rm -rf .\vscode
 
-      - name: GitHub Commit & Push
-        uses: actions-js/push@v1.4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Save tree file for D to artifact
+        run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
+
+      # - name: GitHub Commit & Push
+      #   uses: actions-js/push@v1.4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
 
 ## save name of extensions and their (and vscodes) version number in a file
 ## run pipeline daily
