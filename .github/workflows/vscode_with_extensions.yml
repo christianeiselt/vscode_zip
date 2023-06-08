@@ -17,6 +17,9 @@ jobs:
       - name: List directory content
         run: dir
 
+      # - name: Save tree file for C to artifact
+      #   run: powershell -command "tree /f /a c:\ > vscode/tree_C.txt"
+
       # Download vscode zip
       - name: Download vscode archive
         run: ./Download-VSCodex64Archive.ps1
@@ -32,8 +35,8 @@ jobs:
       - name: Download and install
         run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./packages.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
-      # - name: Save tree file for C to artifact
-      #   run: powershell -command "tree /f /a c:\ > vscode/tree_C.txt"
+      ## save name of extensions and their (and vscode) version number in a file
+
 
       - name: Archive Data Directory
         uses: actions/upload-artifact@v3
@@ -41,7 +44,7 @@ jobs:
           name: data-artifact
           path: vscode
 
-      - name: Remove artifiact directory
+      - name: Remove artifact directory
         run: Remove-Item -recurse -force vscode
 
       - name: List directory tree
@@ -50,11 +53,10 @@ jobs:
       # - name: Save tree file for D to artifact
       #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
 
-      # - name: GitHub Commit & Push
-      #   uses: actions-js/push@v1.4
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: GitHub Commit & Push
+        uses: actions-js/push@v1.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-## save name of extensions and their (and vscodes) version number in a file
 ## run pipeline daily
 ## check and mail if version was incremented
