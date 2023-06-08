@@ -624,12 +624,15 @@ try {
         }
     }
 
-    $vscode_version = ""
-    [System.Collections.Hashtable]$package_lock = @{
+    $vscode_basename = (Get-Item ./vscode_zip/VSCode-win32-x64-*.zip).BaseName
+    $vscode_version = "$($vscode_basename.Split('-')[-1])"
+    [System.Collections.Hashtable]$packages = @{
         "vscode_version" = "$vscode_version";
         "extensions" = $extensions_list
     }
-    Write-Host $($package_lock | ConvertTo-Json)
+    $jsonRepresentation = $($packages | ConvertTo-Json)
+    Write-Host $jsonRepresentation
+    $jsonRepresentation | ConvertTo-Json -depth 100 | Set-Content ".\packages.json"
 
     # Launch if requested
     if ($LaunchWhenDone) {

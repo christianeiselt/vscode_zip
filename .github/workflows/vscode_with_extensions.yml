@@ -30,7 +30,7 @@ jobs:
 
       # Download and Install VS Code and extensions on Windows
       - name: Download and install
-        run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./package-lock.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
+        run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./packages.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
       # - name: Save tree file for D to artifact
       #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
