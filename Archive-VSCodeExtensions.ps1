@@ -1,5 +1,5 @@
 [System.Collections.ArrayList]$extensions_list = @()
-# Archive each installed extension
+# Archive each installed extension as zip
 $extensions_installed = Get-ChildItem "C:\Users\runneradmin\.vscode\extensions"
 foreach ($ext_inst in $extensions_installed)
 {
