@@ -35,43 +35,22 @@ jobs:
       # - name: Save tree file for D to artifact
       #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
 
-      # Create archive of extension archives including vscode zip
-      #      - name: Set up Node.js
-#        uses: actions/setup-node@v2
-#        with:
-#          node-version: '14'
-
-
-      # - name: Download Visual Studio Code
-        # run: ./Download-VSCodex64Archive.ps1
-          # |
-          # $current_directory = pwd
-          # Get-ChildItem -Path $current_directory
-#          tar -xf vscode.tar.gz
-#          ls -la
-#          sudo mv vscode-* /usr/share/code
-
-#      - name: Download Extensions
-#        run: |
-#          $extensions = @("extension1@version1", "extension2@version2")
-#          foreach ($ext in $extensions) {
-#            code-server --install-extension $ext
-#         }
-       # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
-
       # - name: Save tree file for C to artifact
       #   run: powershell -command "tree /f /a c:\ > vscode/tree_C.txt"
 
       - name: Archive Data Directory
         uses: actions/upload-artifact@v3
         with:
-         name: data-artifact
-         path: vscode
+          name: data-artifact
+          path: vscode
 
-#      - name: List directory contents
-#        run: |
-#          pwd
-#          ls -la
+      - name: Remove artifiact directory
+        run: rm -rf .\vscode
+
+      - name: GitHub Commit & Push
+        uses: actions-js/push@v1.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
 ## save name of extensions and their (and vscodes) version number in a file
 ## run pipeline daily
