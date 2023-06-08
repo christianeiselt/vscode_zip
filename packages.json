@@ -1,4 +1,5 @@
 {
+  "vscode_version": "1.78.2",
   "extensions": [
     {
       "version": "13.6.0",
@@ -40,6 +41,5 @@
       "version": "12.4.0",
       "uid": "vscode-icons-team.vscode-icons"
     }
-  ],
-  "vscode_version": "1.78.2"
+  ]
 }
