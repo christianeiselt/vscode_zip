@@ -22,7 +22,7 @@ jobs:
         run: ./Download-VSCodex64Archive.ps1
       - name: Move file to data directory
         run: |
-          mkdir vscode_zip
+          mkdir -p vscode_zip\extensions
           mv VSCode*.zip vscode_zip
 
       # - name: Download vscode install script
