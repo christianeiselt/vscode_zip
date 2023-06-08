@@ -1,23 +1,51 @@
-[
-  {
-    "Key": "extensions",
-    "Value": [
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable",
-      "System.Collections.Hashtable"
-    ],
-    "Name": "extensions"
-  },
-  {
-    "Key": "vscode_version",
-    "Value": "1.78.2",
-    "Name": "vscode_version"
-  }
-]
+{
+  "applications": [
+    {
+      "version": "1.78.2",
+      "uid": "VSCode-win32-x64"
+
+    }
+  ],
+  "extensions": [
+    {
+      "version": "13.6.0",
+      "uid": "eamodio.gitlens"
+    },
+    {
+      "version": "9.13.0",
+      "uid": "esbenp.prettier-vscode"
+    },
+    {
+      "version": "2023.6.0",
+      "uid": "ms-vscode.powershell"
+    },
+    {
+      "version": "8.3.1",
+      "uid": "oderwat.indent-rainbow"
+    },
+    {
+      "version": "2023.4.0",
+      "uid": "pspester.pester-test"
+    },
+    {
+      "version": "1.13.0",
+      "uid": "redhat.vscode-yaml"
+    },
+    {
+      "version": "2.20.4",
+      "uid": "streetsidesoftware.code-spell-checker"
+    },
+    {
+      "version": "0.11.0",
+      "uid": "vincaslt.highlight-matching-tag"
+    },
+    {
+      "version": "1.25.0",
+      "uid": "vivaxy.vscode-conventional-commits"
+    },
+    {
+      "version": "12.4.0",
+      "uid": "vscode-icons-team.vscode-icons"
+    }
+  ]
+}
