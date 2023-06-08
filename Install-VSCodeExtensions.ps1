@@ -613,7 +613,7 @@ try {
         $extension_name = $ext_inst.Name.Substring(0, $ext_inst.Name.lastIndexOf('-'))
         $extension_version = $ext_inst.Name.Split('-')[-1]
         Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.FullName))"
-        Compress-Archive -Path $installed_extension.FullName -DestinationPath "./vscode/extensions/$extension_name.zip"
+        Compress-Archive -Path $ext_inst.FullName -DestinationPath "./vscode/extensions/$extension_name.zip"
     }
 
     # Launch if requested
