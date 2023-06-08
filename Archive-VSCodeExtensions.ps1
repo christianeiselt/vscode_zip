@@ -18,17 +18,24 @@ foreach ($ext_inst in $extensions_installed)
     }
 }
 
+# Save extension versions as json to file
+$extensions_hashtable = @{"extensions" = $extensions_list}
+$extensions_json = $( $extensions_hashtable | ConvertTo-Json)
+Write-Host $extensions_json
+$extensions_json | Set-Content ".\extensions.json"
+
+
+# Save vscode version as json to file
 $vscode_basename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
 $vscode_version = "$($vscode_basename.Split('-')[-1])"
-[System.Collections.Hashtable]$packages = [ordered]@{
-    "applications" = @(
-        @{
-            "version" = "$vscode_version";
-            "uid" = "VSCode-win32-x64"
-        }
-    );
-    "extensions" = $extensions_list
-}
-$jsonRepresentation = $( $packages | ConvertTo-Json)
-Write-Host $jsonRepresentation
-$jsonRepresentation | Set-Content ".\packages.json"
+[System.Collections.ArrayList]$applications_list = @(
+    @{
+        "version" = "$vscode_version";
+        "uid" = "VSCode-win32-x64"
+    }
+)
+
+$applications_hashtable = @{"applications" = $applications_list}
+$applications_json = $( $applications_hashtable | ConvertTo-Json)
+Write-Host $applications_json
+$applications_json | Set-Content ".\applications.json"

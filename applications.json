@@ -1,0 +1,8 @@
+{
+    "applications": [
+        {
+          "uid": "VSCode-win32-x64",
+          "version": "1.78.2"
+        }
+    ]
+}
