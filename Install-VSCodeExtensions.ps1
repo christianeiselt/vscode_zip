@@ -607,16 +607,13 @@ try {
     }
 
     # Archive each installed extension
-    $extension_directories = (Get-Item "C:\Users\runneradmin\.vscode\extensions\$extension-*").FullName
-    foreach ($path_installed_extension in $extension_directories)
+    $extensions_installed = Get-ChildItem "C:\Users\runneradmin\.vscode\extensions")
+    foreach ($ext_inst in $extensions_installed)
     {
-        $installed_extension = Get-Item $path_installed_extension
-        $extension_name = $installed_extension.Name
-
-        # $TARGET = Resolve-Path "\\MACHINE1\c$\ProgramData\Test\12.*\Data\" | Select -ExpandProperty Path
-        # Write-Host $(Get-ChildItem -Path "C:\Users\runneradmin\.vscode\extensions\")
-        # Test-Path "C:\Users\runneradmin\.vscode\extensions\$extension-*"
-        Compress-Archive -Path $installed_extension.FullName -DestinationPath "./vscode/extensions/$extension_name"
+        $extension_name = $ext_inst.Name
+        $extension_version = $ext_inst.Name.Split('-')[1]
+        Write-Host "Archiving version $extension_version of extension $extension_name ($($ext_inst.FullName))"
+        Compress-Archive -Path $installed_extension.FullName -DestinationPath "./vscode/extensions/$extension_name.zip"
     }
 
     # Launch if requested
