@@ -56,11 +56,11 @@ jobs:
 #         }
        # Füge hier weitere Code-Zeilen hinzu, um zusätzliche Extensions herunterzuladen
 
-      - name: Save tree file for C to artifact
-        run: powershell -command "tree /f /a c:\ > vscode_zip/tree_C.txt"
+      # - name: Save tree file for C to artifact
+      #   run: powershell -command "tree /f /a c:\ > vscode_zip/tree_C.txt"
 
-      - name: Save tree file for D to artifact
-        run: powershell -command "tree /f /a d:\ > vscode_zip/tree_D.txt"
+      # - name: Save tree file for D to artifact
+      #   run: powershell -command "tree /f /a d:\ > vscode_zip/tree_D.txt"
 
       - name: Archive Data Directory
         uses: actions/upload-artifact@v3

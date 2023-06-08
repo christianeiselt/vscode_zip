@@ -602,7 +602,7 @@ try {
             foreach ($extension in $extensions) {
                 Write-Host "`nInstalling extension $extension..." -ForegroundColor Yellow
                 & $codeExePath --install-extension $extension
-                #Compress-Archive -Path C:Invoices -DestinationPath "./vscode_zip/extensions"
+                Compress-Archive -Path D:\runneradmin\.vscode\extensions\$extension* -DestinationPath "./vscode_zip/extensions"
             }
         }
     }
