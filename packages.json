@@ -1,35 +1,41 @@
 {
-    "vscode_version": "1.78.2",
+    "vscode_version": "1.78.1",
     "extensions": [
       {
-        "eamodio.gitlens": "13.6.0"
+        "uid": "eamodio.gitlens",
+        "version": "10.2.2"
       },
       {
-        "esbenp.prettier-vscode": "9.13.0"
+        "uid": "esbenp.prettier-vscode",
+        "version": "8.0.0"
       },
       {
-        "ms-vscode.powershell": "2023.6.0"
+        "uid": "oderwat.indent-rainbow",
+        "version": "7.4.0"
       },
       {
-        "oderwat.indent-rainbow": "8.3.1"
+        "uid": "pspester.pester-test",
+        "version": "2023.4.0"
       },
       {
-        "pspester.pester-test": "2023.4.0"
+        "uid": "redhat.vscode-yaml",
+        "version": "1.8.0"
       },
       {
-        "redhat.vscode-yaml": "1.13.0"
+        "uid": "streetsidesoftware.code-spell-checker",
+        "version": "1.9.0"
       },
       {
-        "streetsidesoftware.code-spell-checker": "2.20.4"
+        "uid": "vincaslt.highlight-matching-tag",
+        "version": "0.9.6"
       },
       {
-        "vincaslt.highlight-matching-tag": "0.11.0"
+        "uid": "vivaxy.vscode-conventional-commits",
+        "version": "1.25.0"
       },
       {
-        "vivaxy.vscode-conventional-commits": "1.25.0"
-      },
-      {
-        "vscode-icons-team.vscode-icons": "12.4.0"
+        "uid": "vscode-icons-team.vscode-icons",
+        "version": "9.7.0"
       }
     ]
 }
