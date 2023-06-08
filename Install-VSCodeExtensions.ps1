@@ -607,10 +607,13 @@ try {
     }
 
     $vscode_basename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
+    $vscode_name = $($vscode_basename).Substring(0, $($vscode_basename).lastIndexOf('-'))
     $vscode_version = "$($vscode_basename.Split('-')[-1])"
-    [System.Collections.ArrayList]$packages_list = @({
-        "uid" = $vscode_basename;
-        "version" = $vscode_version}
+    [System.Collections.ArrayList]$packages_list = @(
+        @{
+            "uid" = $vscode_name;
+            "version" = $vscode_version
+        }
     )
 
     # Archive each installed extension
