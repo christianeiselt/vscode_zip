@@ -1,41 +1,45 @@
 {
-    "vscode_version": "1.78.1",
-    "extensions": [
-      {
-        "uid": "eamodio.gitlens",
-        "version": "10.2.2"
-      },
-      {
-        "uid": "esbenp.prettier-vscode",
-        "version": "8.0.0"
-      },
-      {
-        "uid": "oderwat.indent-rainbow",
-        "version": "7.4.0"
-      },
-      {
-        "uid": "pspester.pester-test",
-        "version": "2023.4.0"
-      },
-      {
-        "uid": "redhat.vscode-yaml",
-        "version": "1.8.0"
-      },
-      {
-        "uid": "streetsidesoftware.code-spell-checker",
-        "version": "1.9.0"
-      },
-      {
-        "uid": "vincaslt.highlight-matching-tag",
-        "version": "0.9.6"
-      },
-      {
-        "uid": "vivaxy.vscode-conventional-commits",
-        "version": "1.25.0"
-      },
-      {
-        "uid": "vscode-icons-team.vscode-icons",
-        "version": "9.7.0"
-      }
-    ]
+  "extensions": [
+    {
+      "version": "13.6.0",
+      "uid": "eamodio.gitlens"
+    },
+    {
+      "version": "9.13.0",
+      "uid": "esbenp.prettier-vscode"
+    },
+    {
+      "version": "2023.6.0",
+      "uid": "ms-vscode.powershell"
+    },
+    {
+      "version": "8.3.1",
+      "uid": "oderwat.indent-rainbow"
+    },
+    {
+      "version": "2023.4.0",
+      "uid": "pspester.pester-test"
+    },
+    {
+      "version": "1.13.0",
+      "uid": "redhat.vscode-yaml"
+    },
+    {
+      "version": "2.20.4",
+      "uid": "streetsidesoftware.code-spell-checker"
+    },
+    {
+      "version": "0.11.0",
+      "uid": "vincaslt.highlight-matching-tag"
+    },
+    {
+      "version": "1.25.0",
+      "uid": "vivaxy.vscode-conventional-commits"
+    },
+    {
+      "version": "12.4.0",
+      "uid": "vscode-icons-team.vscode-icons"
+    }
+  ],
+  "vscode_version": "1.78.2"
 }
