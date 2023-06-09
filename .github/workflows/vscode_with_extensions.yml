@@ -29,7 +29,7 @@ jobs:
 
       # Download vscode zip
       - name: Download vscode archive
-        run: ./Download-VSCodex64Archive.ps1
+        run: ./scripts/Download-VSCodex64Archive.ps1
       - name: Move file to data directory
         run: |
           mkdir -p vscode\extensions
@@ -40,10 +40,10 @@ jobs:
 
       # Download and Install VS Code and extensions on Windows
       - name: Download and install
-        run: ./Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./extensions.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
+        run: ./scripts/Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./extensions.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
       - name: Archive extensions and update packages.json
-        run: ./Archive-VSCodeExtensions.ps1
+        run: ./scripts/Archive-VSCodeExtensions.ps1
 
       - name: Archive Data Directory
         uses: actions/upload-artifact@v3
