@@ -1,1 +1,2 @@
 # vscode_zip
+[![Visual Studio Code Pipeline](https://github.com/christianeiselt/vscode_zip/actions/workflows/vscode_with_extensions.yml/badge.svg)](https://github.com/christianeiselt/vscode_zip/actions/workflows/vscode_with_extensions.yml)
