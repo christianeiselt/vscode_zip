@@ -8,7 +8,7 @@ foreach ($ext_inst in $extensions_installed)
         Write-Host $ext_inst.FullName
         $extension_name = $($ext_inst.Name).Substring(0, $($ext_inst.Name).lastIndexOf('-'))
         $extension_version = $ext_inst.Name.Split('-')[-1]
-        $extension_hashtable = @{
+        $extension_hashtable = [ordered]@{
             "uid" = $extension_name;
             "version" = $extension_version };
         [void]$extensions_list.Add($extension_hashtable)
@@ -29,7 +29,7 @@ $extensions_json | Set-Content ".\extensions.json"
 $vscode_basename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
 $vscode_version = "$($vscode_basename.Split('-')[-1])"
 [System.Collections.ArrayList]$applications_list = @(
-    @{
+    [ordered]@{
         "version" = "$vscode_version";
         "uid" = "VSCode-win32-x64"
     }
