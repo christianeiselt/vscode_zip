@@ -1,188 +1,188 @@
 {
   "extensions": [
     {
-      "version": "2.0.6",
-      "uid": "aliasadidev.nugetpackagemanagergui"
+      "uid": "aliasadidev.nugetpackagemanagergui",
+      "version": "2.0.6"
     },
     {
-      "version": "0.5.5",
-      "uid": "bscan.perlnavigator"
+      "uid": "bscan.perlnavigator",
+      "version": "0.5.5"
     },
     {
-      "version": "2.8.4",
-      "uid": "christian-kohler.path-intellisense"
+      "uid": "christian-kohler.path-intellisense",
+      "version": "2.8.4"
     },
     {
-      "version": "0.50.0",
-      "uid": "davidanson.vscode-markdownlint"
+      "uid": "davidanson.vscode-markdownlint",
+      "version": "0.50.0"
     },
     {
-      "version": "0.6.20",
-      "uid": "donjayamanne.githistory"
+      "uid": "donjayamanne.githistory",
+      "version": "0.6.20"
     },
     {
-      "version": "13.6.0",
-      "uid": "eamodio.gitlens"
+      "uid": "eamodio.gitlens",
+      "version": "13.6.0"
     },
     {
-      "version": "9.13.0",
-      "uid": "esbenp.prettier-vscode"
+      "uid": "esbenp.prettier-vscode",
+      "version": "9.13.0"
     },
     {
-      "version": "2.9.8",
-      "uid": "firefox-devtools.vscode-firefox-debug"
+      "uid": "firefox-devtools.vscode-firefox-debug",
+      "version": "2.9.8"
     },
     {
-      "version": "0.5.14",
-      "uid": "formulahendry.auto-close-tag"
+      "uid": "formulahendry.auto-close-tag",
+      "version": "0.5.14"
     },
     {
-      "version": "0.0.226",
-      "uid": "gruntfuggly.todo-tree"
+      "uid": "gruntfuggly.todo-tree",
+      "version": "0.0.226"
     },
     {
-      "version": "0.25.1",
-      "uid": "humao.rest-client"
+      "uid": "humao.rest-client",
+      "version": "0.25.1"
     },
     {
-      "version": "1.8.0",
-      "uid": "jdinhlife.gruvbox"
+      "uid": "jdinhlife.gruvbox",
+      "version": "1.8.0"
     },
     {
-      "version": "1.30.0",
-      "uid": "mhutchie.git-graph"
+      "uid": "mhutchie.git-graph",
+      "version": "1.30.0"
     },
     {
-      "version": "1.0.1",
-      "uid": "mikestead.dotenv"
+      "uid": "mikestead.dotenv",
+      "version": "1.0.1"
     },
     {
-      "version": "0.10.0",
-      "uid": "mrmlnc.vscode-scss"
+      "uid": "mrmlnc.vscode-scss",
+      "version": "0.10.0"
     },
     {
-      "version": "1.3.12",
-      "uid": "ms-kubernetes-tools.vscode-kubernetes-tools"
+      "uid": "ms-kubernetes-tools.vscode-kubernetes-tools",
+      "version": "1.3.12"
     },
     {
-      "version": "2023.10.0",
-      "uid": "ms-python.python"
+      "uid": "ms-python.python",
+      "version": "2023.10.0"
     },
     {
-      "version": "2023.6.10",
-      "uid": "ms-python.vscode-pylance"
+      "uid": "ms-python.vscode-pylance",
+      "version": "2023.6.10"
     },
     {
-      "version": "1.1.2",
-      "uid": "ms-toolsai.jupyter-keymap"
+      "uid": "ms-toolsai.jupyter-keymap",
+      "version": "1.1.2"
     },
     {
-      "version": "1.0.15",
-      "uid": "ms-toolsai.jupyter-renderers"
+      "uid": "ms-toolsai.jupyter-renderers",
+      "version": "1.0.15"
     },
     {
-      "version": "0.1.8",
-      "uid": "ms-toolsai.vscode-jupyter-cell-tags"
+      "uid": "ms-toolsai.vscode-jupyter-cell-tags",
+      "version": "0.1.8"
     },
     {
-      "version": "0.1.5",
-      "uid": "ms-toolsai.vscode-jupyter-slideshow"
+      "uid": "ms-toolsai.vscode-jupyter-slideshow",
+      "version": "0.1.5"
     },
     {
-      "version": "1.0.7",
-      "uid": "ms-vscode.notepadplusplus-keybindings"
+      "uid": "ms-vscode.notepadplusplus-keybindings",
+      "version": "1.0.7"
     },
     {
-      "version": "2023.6.0",
-      "uid": "ms-vscode.powershell"
+      "uid": "ms-vscode.powershell",
+      "version": "2023.6.0"
     },
     {
-      "version": "0.37.3",
-      "uid": "octref.vetur"
+      "uid": "octref.vetur",
+      "version": "0.37.3"
     },
     {
-      "version": "8.3.1",
-      "uid": "oderwat.indent-rainbow"
+      "uid": "oderwat.indent-rainbow",
+      "version": "8.3.1"
     },
     {
-      "version": "2023.4.0",
-      "uid": "pspester.pester-test"
+      "uid": "pspester.pester-test",
+      "version": "2023.4.0"
     },
     {
-      "version": "1.4.0",
-      "uid": "puppet.puppet-vscode"
+      "uid": "puppet.puppet-vscode",
+      "version": "1.4.0"
     },
     {
-      "version": "12.0.46",
-      "uid": "quicktype.quicktype"
+      "uid": "quicktype.quicktype",
+      "version": "12.0.46"
     },
     {
-      "version": "0.1.0",
-      "uid": "redhat.vscode-redhat-account"
+      "uid": "redhat.vscode-redhat-account",
+      "version": "0.1.0"
     },
     {
-      "version": "1.13.0",
-      "uid": "redhat.vscode-yaml"
+      "uid": "redhat.vscode-yaml",
+      "version": "1.13.0"
     },
     {
-      "version": "5.7.9",
-      "uid": "ritwickdey.liveserver"
+      "uid": "ritwickdey.liveserver",
+      "version": "5.7.9"
     },
     {
-      "version": "0.20.0",
-      "uid": "samuelcolvin.jinjahtml"
+      "uid": "samuelcolvin.jinjahtml",
+      "version": "0.20.0"
     },
     {
-      "version": "0.4.1",
-      "uid": "shardulm94.trailing-spaces"
+      "uid": "shardulm94.trailing-spaces",
+      "version": "0.4.1"
     },
     {
-      "version": "2.20.4",
-      "uid": "streetsidesoftware.code-spell-checker"
+      "uid": "streetsidesoftware.code-spell-checker",
+      "version": "2.20.4"
     },
     {
-      "version": "0.4.1",
-      "uid": "tyriar.shell-launcher"
+      "uid": "tyriar.shell-launcher",
+      "version": "0.4.1"
     },
     {
-      "version": "0.11.0",
-      "uid": "vincaslt.highlight-matching-tag"
+      "uid": "vincaslt.highlight-matching-tag",
+      "version": "0.11.0"
     },
     {
-      "version": "0.2.7",
-      "uid": "visualstudioexptteam.intellicode-api-usage-examples"
+      "uid": "visualstudioexptteam.intellicode-api-usage-examples",
+      "version": "0.2.7"
     },
     {
-      "version": "1.2.30",
-      "uid": "visualstudioexptteam.vscodeintellicode"
+      "uid": "visualstudioexptteam.vscodeintellicode",
+      "version": "1.2.30"
     },
     {
-      "version": "1.25.0",
-      "uid": "vivaxy.vscode-conventional-commits"
+      "uid": "vivaxy.vscode-conventional-commits",
+      "version": "1.25.0"
     },
     {
-      "version": "12.4.0",
-      "uid": "vscode-icons-team.vscode-icons"
+      "uid": "vscode-icons-team.vscode-icons",
+      "version": "12.4.0"
     },
     {
-      "version": "0.3.1",
-      "uid": "wmaurer.vscode-jumpy"
+      "uid": "wmaurer.vscode-jumpy",
+      "version": "0.3.1"
     },
     {
-      "version": "1.8.0",
-      "uid": "xabikos.javascriptsnippets"
+      "uid": "xabikos.javascriptsnippets",
+      "version": "1.8.0"
     },
     {
-      "version": "1.4.4",
-      "uid": "yzane.markdown-pdf"
+      "uid": "yzane.markdown-pdf",
+      "version": "1.4.4"
     },
     {
-      "version": "3.5.1",
-      "uid": "yzhang.markdown-all-in-one"
+      "uid": "yzhang.markdown-all-in-one",
+      "version": "3.5.1"
     },
     {
-      "version": "1.20.0",
-      "uid": "zignd.html-css-class-completion"
+      "uid": "zignd.html-css-class-completion",
+      "version": "1.20.0"
     }
   ]
 }
