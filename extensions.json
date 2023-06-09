@@ -17,20 +17,12 @@
       "uid": "davidanson.vscode-markdownlint"
     },
     {
-      "version": "2.4.0",
-      "uid": "dbaeumer.vscode-eslint"
-    },
-    {
       "version": "0.6.20",
       "uid": "donjayamanne.githistory"
     },
     {
       "version": "13.6.0",
       "uid": "eamodio.gitlens"
-    },
-    {
-      "version": "0.16.4",
-      "uid": "editorconfig.editorconfig"
     },
     {
       "version": "9.13.0",
@@ -45,10 +37,6 @@
       "uid": "formulahendry.auto-close-tag"
     },
     {
-      "version": "0.1.10",
-      "uid": "formulahendry.auto-rename-tag"
-    },
-    {
       "version": "0.0.226",
       "uid": "gruntfuggly.todo-tree"
     },
@@ -59,10 +47,6 @@
     {
       "version": "1.8.0",
       "uid": "jdinhlife.gruvbox"
-    },
-    {
-      "version": "0.11.1",
-      "uid": "kamikillerto.vscode-colorize"
     },
     {
       "version": "1.30.0",
@@ -81,16 +65,12 @@
       "uid": "ms-kubernetes-tools.vscode-kubernetes-tools"
     },
     {
-      "version": "2023.8.0",
+      "version": "2023.10.0",
       "uid": "ms-python.python"
     },
     {
       "version": "2023.6.10",
       "uid": "ms-python.vscode-pylance"
-    },
-    {
-      "version": "x64",
-      "uid": "ms-toolsai.jupyter-2023.5.1001582324-win32"
     },
     {
       "version": "1.1.2",
@@ -135,10 +115,6 @@
     {
       "version": "12.0.46",
       "uid": "quicktype.quicktype"
-    },
-    {
-      "version": "x64",
-      "uid": "redhat.vscode-openshift-connector-1.5.0-win32"
     },
     {
       "version": "0.1.0",
