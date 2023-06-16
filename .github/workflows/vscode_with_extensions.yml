@@ -63,7 +63,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate version
-        run: echo "{version}={$((Get-Content ./applications.json | ConvertFrom-Json).applications[0].version)-$((github.ref))}" >> $GITHUB_OUTPUT
+        run: echo "{version}={$((Get-Content ./applications.json | ConvertFrom-Json).applications[0].version)-${{ github.ref }}}" >> $GITHUB_OUTPUT
         id: version
       
       - name: Create release
