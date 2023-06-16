@@ -62,18 +62,18 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate version
-        run: echo "{version}={$((Get-Content ./applications.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
-        id: generate_version
+      # - name: Generate version
+      #   run: echo "{version}={$((Get-Content ./applications.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
+      #   id: generate_version
       
-      - name: Create release
-        uses: actions/create-release@v1
-        id: create_release
-        with:
-          draft: false
-          prerelease: false
-          release_name: 1.0.0-abcde #$(git rev-parse --short "$GITHUB_SHA")
-          tag_name: 1.0.0-abcde #$(git rev-parse --short "$GITHUB_SHA")
-          # body_path: CHANGELOG.md
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      # - name: Create release
+      #   uses: actions/create-release@v1
+      #   id: create_release
+      #   with:
+      #     draft: false
+      #     prerelease: false
+      #     release_name: 1.0.0-abcde #$(git rev-parse --short "$GITHUB_SHA")
+      #     tag_name: 1.0.0-abcde #$(git rev-parse --short "$GITHUB_SHA")
+      #     # body_path: CHANGELOG.md
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
