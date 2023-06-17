@@ -62,10 +62,13 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Generate version
-      #   run: echo "{version}={$((Get-Content ./applications.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
-      #   id: generate_version
+      - name: Generate version
+        run: echo "{version}={$((Get-Content ./applications.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
+        id: generate_version
       
+      - name: Echo GitHub context
+        run: echo "$GITHUB_CONTEXT"
+
       # - name: Create release
       #   uses: actions/create-release@v1
       #   id: create_release
