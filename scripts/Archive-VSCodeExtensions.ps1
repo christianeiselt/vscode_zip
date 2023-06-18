@@ -1,5 +1,10 @@
 . $PSScriptRoot/Utils.ps1
 
+if (Test-Path "C:\Users\runneradmin\.vscode\extensions")
+{
+    Write-Host "Path is available"
+}
+
 [System.Collections.ArrayList]$extensionList = New-ExtensionArchive
 -PathInstalledExtensions "C:\Users\runneradmin\.vscode\extensions"
 -PathArchivedExtensions "./vscode/extensions" | Out-Null
