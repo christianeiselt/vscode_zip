@@ -85,7 +85,7 @@ function New-ReleaseVersion {
     
     $newReleaseVersionHashtable = @{
         "appVersion" = $applicationHashTable.applications.version;
-        "interation" = $nextIteration
+        "interation" = "$nextIteration"
     }
     $newReleaseVersionJson = $( $newReleaseVersionHashtable | ConvertTo-Json)
     $newReleaseVersionJson | Set-Content $PathReleaseVersion
