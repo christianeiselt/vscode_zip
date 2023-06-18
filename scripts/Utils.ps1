@@ -1,12 +1,8 @@
 function New-ExtensionArchive {
     [CmdletBinding()]
     param (
-        [Parameter()]
-        [String]
-        $PathInstalledExtensions,
-        [Parameter()]
-        [String]
-        $PathArchivedExtensions
+        [String]$PathInstalledExtensions,
+        [String]$PathArchivedExtensions
     )
 
     [System.Collections.ArrayList]$extensions_list = @()
@@ -31,12 +27,8 @@ function New-ExtensionArchive {
 function Set-ExtensionsJson {
     [CmdletBinding()]
     param (
-        [Parameter()]
-        [System.Collections.ArrayList]
-        $Extensions,
-        [Parameter()]
-        [String]
-        $Path
+        [System.Collections.ArrayList]$Extensions,
+        [String]$Path
     )
 
     $extensionsHashtable = @{"extensions" = $Extensions }
@@ -50,9 +42,7 @@ function Set-ExtensionsJson {
 function Set-ApplicationsJson {
     [CmdletBinding()]
     param (
-        [Parameter()]
-        [String]
-        $Path
+        [String]$Path
     )
 
     $vscodeBasename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
