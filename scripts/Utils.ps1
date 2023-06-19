@@ -21,7 +21,7 @@ function New-ExtensionArchive {
         }
     }
     
-    $extensions_list
+    return $extensions_list
 }
 
 function Set-ExtensionsJson {
@@ -36,7 +36,7 @@ function Set-ExtensionsJson {
     $extensionsJson | Set-Content $Path
     $extensionsJsonPath = (Get-Item $Path).FullName
 
-    $extensionsJsonPath
+    return $extensionsJsonPath
 }
 
 function Set-ApplicationsJson {
@@ -59,18 +59,14 @@ function Set-ApplicationsJson {
     $applicationsJson | Set-Content $Path
     $applicationsJsonPath = (Get-Item $Path).FullName
 
-    $applicationsJsonPath
+    return $applicationsJsonPath
 }
 
 function New-ReleaseVersion {
     [CmdletBinding()]
     param (
-        [Parameter()]
-        [String]
-        $PathApplicationsJson,
-        [Parameter()]
-        [String]
-        $PathReleaseVersion
+        [String]$PathApplicationsJson,
+        [String]$PathReleaseVersion
     )
 
     $applicationHashTable = (Get-Content -LiteralPath $PathApplicationsJson | ConvertFrom-Json)
@@ -89,7 +85,7 @@ function New-ReleaseVersion {
     }
     $newReleaseVersionJson = $( $newReleaseVersionHashtable | ConvertTo-Json)
     $newReleaseVersionJson | Set-Content $PathReleaseVersion
-    
     $newReleaseVersion = "$($newReleaseVersionHashtable.appVersion)-$($newReleaseVersionHashtable.interation)"
-    $newReleaseVersion
+    
+    return $newReleaseVersion
 }

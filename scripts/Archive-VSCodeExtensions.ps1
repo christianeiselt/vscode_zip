@@ -4,6 +4,8 @@
 -PathInstalledExtensions "C:\Users\runneradmin\.vscode\extensions" `
 -PathArchivedExtensions "./vscode/extensions" | Out-Null
 
+Write-Host $extensionList.exensions
+
 # Save extension versions as json to file
 Set-ExtensionsJson `
 -Extensions $extensionList `
