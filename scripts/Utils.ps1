@@ -1,8 +1,12 @@
 function New-ExtensionArchive {
     [CmdletBinding()]
     param (
-        [String]$PathInstalledExtensions,
-        [String]$PathArchivedExtensions
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PathInstalledExtensions,
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PathArchivedExtensions
     )
 
     [System.Collections.ArrayList]$extensions_list = @()
@@ -27,8 +31,12 @@ function New-ExtensionArchive {
 function Set-ExtensionsJson {
     [CmdletBinding()]
     param (
-        [System.Collections.ArrayList]$Extensions,
-        [String]$Path
+        [ValidateNotNullOrEmpty()]
+        [System.Collections.ArrayList]
+        $Extensions,
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Path
     )
 
     $extensionsHashtable = @{"extensions" = $Extensions }
@@ -42,7 +50,9 @@ function Set-ExtensionsJson {
 function Set-ApplicationsJson {
     [CmdletBinding()]
     param (
-        [String]$Path
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $Path
     )
 
     $vscodeBasename = (Get-Item "vscode\VSCode-win32-x64-*.zip").BaseName
@@ -65,8 +75,12 @@ function Set-ApplicationsJson {
 function New-ReleaseVersion {
     [CmdletBinding()]
     param (
-        [String]$PathApplicationsJson,
-        [String]$PathReleaseVersion
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PathApplicationsJson,
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PathReleaseVersion
     )
 
     $applicationHashTable = (Get-Content -LiteralPath $PathApplicationsJson | ConvertFrom-Json)
