@@ -10,8 +10,8 @@ Set-ExtensionsJson `
 -Path "./extensions.json" | Out-Null
 
 Get-ChildItem .
-Get-Item extension.json
-$extensionJson = Get-Item extension.json
+Get-Item extensions.json
+$extensionJson = Get-Item extensions.json
 $extensionJson.FullName
 
 # Save vscode version as json to file
