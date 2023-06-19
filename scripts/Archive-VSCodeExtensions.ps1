@@ -2,7 +2,7 @@
 
 [System.Collections.ArrayList]$extensionList = New-ExtensionArchive `
 -PathInstalledExtensions "C:\Users\runneradmin\.vscode\extensions" `
--PathArchivedExtensions "./vscode/extensions" | Out-Null
+-PathArchivedExtensions "./vscode/extensions"
 
 Write-Host $extensionList.exensions
 
