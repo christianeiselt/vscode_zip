@@ -43,7 +43,7 @@ jobs:
         run: ./scripts/Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./extensions.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
       - name: Archive extensions and update extensions.json
-        run: echo "release_version=$(./scripts/Archive-VSCodeExtensions.ps1)\n" >> $env:GITHUB_OUTPUT
+        run: echo "release_version=$(./scripts/Archive-VSCodeExtensions.ps1)" >> $env:GITHUB_OUTPUT
         id: archive_extensions
 
       - name: Archive Data Directory
@@ -71,14 +71,14 @@ jobs:
         run: |
           echo ${{ steps.archive_extensions.outputs.release_version }}
 
-      # - name: Create release
-      #   uses: actions/create-release@v1
-      #   id: create_release
-      #   with:
-      #     draft: false
-      #     prerelease: false
-      #     release_name: ${{ steps.archive_extensions.outputs }}
-      #     tag_name: ${{ steps.archive_extensions.outputs }}
-      #     # body_path: CHANGELOG.md
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
+      - name: Create release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ steps.archive_extensions.outputs.release_version }}
+          tag_name: ${{ steps.archive_extensions.outputs.release_version }}
+          # body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
