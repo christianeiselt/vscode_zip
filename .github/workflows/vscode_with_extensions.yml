@@ -68,8 +68,9 @@ jobs:
       #   id: generate_version
 
       - name: Echo Archive Output
-        run: echo ${{ steps.archive_extensions.outputs }}
-
+        run: |
+          echo ${{ steps.archive_extensions.outputs[0] }}
+          echo ${{join(steps.archive_extensions.outputs.*, '\n')}}
       # - name: Create release
       #   uses: actions/create-release@v1
       #   id: create_release
