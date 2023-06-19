@@ -67,17 +67,17 @@ jobs:
       #   run: echo "{version}={$((Get-Content ./release_version.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
       #   id: generate_version
 
-      # - name: Echo GitHub context
-      #   run: echo "$GITHUB_CONTEXT"
+      - name: Echo Archive Output
+        run: echo ${{ steps.archive_extensions.outputs }}
 
-      - name: Create release
-        uses: actions/create-release@v1
-        id: create_release
-        with:
-          draft: false
-          prerelease: false
-          release_name: ${{ steps.archive_extensions.outputs }}
-          tag_name: ${{ steps.archive_extensions.outputs }}
-          # body_path: CHANGELOG.md
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      # - name: Create release
+      #   uses: actions/create-release@v1
+      #   id: create_release
+      #   with:
+      #     draft: false
+      #     prerelease: false
+      #     release_name: ${{ steps.archive_extensions.outputs }}
+      #     tag_name: ${{ steps.archive_extensions.outputs }}
+      #     # body_path: CHANGELOG.md
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}

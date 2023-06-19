@@ -9,6 +9,11 @@ Set-ExtensionsJson `
 -Extensions $extensionList `
 -Path "./extensions.json" | Out-Null
 
+Get-ChildItem .
+Get-Item extension.json
+$extensionJson = Get-Item extension.json
+$extensionJson.FullName
+
 # Save vscode version as json to file
 Set-ApplicationsJson `
 -Path "./applications.json" | Out-Null
