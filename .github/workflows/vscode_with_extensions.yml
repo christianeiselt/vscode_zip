@@ -51,23 +51,6 @@ jobs:
         run: echo "new_release_version=$(./scripts/Archive-VSCodeExtensions.ps1)" >> $env:GITHUB_OUTPUT
         id: archive_extensions
 
-      - name: Archive Data Directory
-        uses: actions/upload-artifact@v3
-        with:
-          name: data-artifact
-          path: vscode
-
-      - name: Remove artifact directory
-        run: Remove-Item -recurse -force vscode
-
-      - name: List directory tree
-        run: tree /f /a
-
-      - name: GitHub Commit & Push
-        uses: actions-js/push@v1.4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
       # - name: Generate version
       #   run: echo "{version}={$((Get-Content ./release_version.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
       #   id: generate_version
@@ -89,3 +72,35 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         if: ne(${{ steps.current_release.outputs.current_release_version }}, ${{ steps.archive_extensions.outputs.new_release_version }})
+
+      - name: upload artifact as release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./vscode/vscode_with_extensions.zip
+          asset_name: vscode_with_extensions.zip
+          asset_content_type: application/zip
+        if: ne(${{ steps.current_release.outputs.current_release_version }}, ${{ steps.archive_extensions.outputs.new_release_version }})
+
+      # - name: Archive Data Directory
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: data-artifact
+      #     path: vscode
+  
+      - name: Remove artifact directory
+        run: |
+          Remove-Item -recurse -force vscode
+          Remove-Item vscode_with_extensions.zip
+  
+      # - name: List directory tree
+      #   run: tree /f /a
+  
+      - name: GitHub Commit & Push
+        uses: actions-js/push@v1.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+  
+  

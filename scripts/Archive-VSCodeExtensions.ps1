@@ -17,3 +17,7 @@ Set-ApplicationsJson `
 New-ReleaseVersion `
 -PathApplicationsJson "./applications.json" `
 -PathReleaseVersion "./release_version.json"
+
+Compress-Archive `
+-Path "vscode" `
+-DestinationPath "./vscode_with_extensions.zip"
