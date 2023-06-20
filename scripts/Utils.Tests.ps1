@@ -106,7 +106,7 @@ Describe 'New-ReleaseVersion' {
     BeforeEach {
         $releaseVersionHashtable = @{
             "appVersion" = "1.0.0";
-            "interation" = "0"
+            "iteration" = "0"
         }
         $releaseVersionJson = $( $releaseVersionHashtable | ConvertTo-Json)
         $releaseVersionJson | Set-Content "release_version_test.json"

@@ -87,6 +87,7 @@ function New-ReleaseVersion {
     $currentReleaseVersionHashtable = (Get-Content -LiteralPath $PathReleaseVersion | ConvertFrom-Json)
     if ($currentReleaseVersionHashtable.appVersion -eq $applicationHashTable.applications.version) {
         $iteration = $currentReleaseVersionHashtable.iteration
+        $iteration = $iteration -as [Int]
         $nextIteration = $iteration + 1
     }
     else {
@@ -95,11 +96,11 @@ function New-ReleaseVersion {
     
     $newReleaseVersionHashtable = @{
         "appVersion" = $applicationHashTable.applications.version;
-        "interation" = "$nextIteration"
+        "iteration" = "$nextIteration"
     }
     $newReleaseVersionJson = $( $newReleaseVersionHashtable | ConvertTo-Json)
     $newReleaseVersionJson | Set-Content $PathReleaseVersion
-    $newReleaseVersion = "$($newReleaseVersionHashtable.appVersion)-$($newReleaseVersionHashtable.interation)"
+    $newReleaseVersion = "$($newReleaseVersionHashtable.appVersion)-$($newReleaseVersionHashtable.iteration)"
     
     return $newReleaseVersion
 }

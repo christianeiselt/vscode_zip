@@ -27,6 +27,11 @@ jobs:
       # - name: Save tree file for D to artifact
       #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
 
+      # Get current release version
+      - name: Get current release version
+        id: current_release
+        run: echo "current_release_version=$(`"$((Get-Content ./release_version.json | ConvertFrom-Json).appVersion)-$((Get-Content ./release_version.json | ConvertFrom-Json).iteration)`")" >> $env:GITHUB_OUTPUT
+
       # Download vscode zip
       - name: Download vscode archive
         run: ./scripts/Download-VSCodex64Archive.ps1
@@ -43,7 +48,7 @@ jobs:
         run: ./scripts/Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./extensions.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
       - name: Archive extensions and update extensions.json
-        run: echo "release_version=$(./scripts/Archive-VSCodeExtensions.ps1)" >> $env:GITHUB_OUTPUT
+        run: echo "new_release_version=$(./scripts/Archive-VSCodeExtensions.ps1)" >> $env:GITHUB_OUTPUT
         id: archive_extensions
 
       - name: Archive Data Directory
@@ -77,8 +82,9 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: ${{ steps.archive_extensions.outputs.release_version }}
-          tag_name: ${{ steps.archive_extensions.outputs.release_version }}
+          release_name: ${{ steps.archive_extensions.outputs.new_release_version }}
+          tag_name: ${{ steps.archive_extensions.outputs.new_release_version }}
           # body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        if: ne(${{ steps.current_release.outputs.current_release_version }}, ${{ steps.archive_extensions.outputs.new_release_version }})
