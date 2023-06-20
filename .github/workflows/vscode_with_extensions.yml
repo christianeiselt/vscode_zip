@@ -79,7 +79,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./vscode/vscode_with_extensions.zip
+          asset_path: vscode_with_extensions.zip
           asset_name: vscode_with_extensions.zip
           asset_content_type: application/zip
         if: ne(${{ steps.current_release.outputs.current_release_version }}, ${{ steps.archive_extensions.outputs.new_release_version }})
