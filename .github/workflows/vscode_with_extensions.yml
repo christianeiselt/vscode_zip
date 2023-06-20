@@ -74,7 +74,7 @@ jobs:
 
       - name: Echo Archive Output
         run: |
-          echo ${{ steps.archive_extensions.outputs.release_version }}
+          echo ${{ steps.archive_extensions.outputs.new_release_version }}
 
       - name: Create release
         uses: actions/create-release@v1
