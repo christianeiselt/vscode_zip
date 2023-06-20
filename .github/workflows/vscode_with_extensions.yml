@@ -72,9 +72,10 @@ jobs:
       #   run: echo "{version}={$((Get-Content ./release_version.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
       #   id: generate_version
 
-      - name: Echo Archive Output
+      - name: List release versions
         run: |
-          echo ${{ steps.archive_extensions.outputs.release_version }}
+          echo "Current Release: ${{ steps.current_release.outputs.current_release_version }}"
+          echo "New Release: ${{ steps.archive_extensions.outputs.new_release_version }}"
 
       - name: Create release
         uses: actions/create-release@v1
