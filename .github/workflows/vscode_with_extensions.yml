@@ -51,10 +51,6 @@ jobs:
         run: echo "new_release_version=$(./scripts/Archive-VSCodeExtensions.ps1)" >> $env:GITHUB_OUTPUT
         id: archive_extensions
 
-      # - name: Generate version
-      #   run: echo "{version}={$((Get-Content ./release_version.json | ConvertFrom-Json).applications[0].version)}" >> $GITHUB_OUTPUT
-      #   id: generate_version
-
       - name: List release versions
         run: |
           echo "Current Release: ${{ steps.current_release.outputs.current_release_version }}"

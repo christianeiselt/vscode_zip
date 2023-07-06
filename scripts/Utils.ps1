@@ -6,26 +6,42 @@ function New-ExtensionArchive {
         $PathInstalledExtensions,
         [ValidateNotNullOrEmpty()]
         [String]
-        $PathArchivedExtensions
+        $PathArchivedExtensions,
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PathExtensionsJson
     )
 
-    [System.Collections.ArrayList]$extensions_list = @()
+    [System.Collections.HashTable]$currentExtensions = (Get-Content -LiteralPath $PathExtensionsJson | ConvertFrom-Json)
+    [System.Collections.ArrayList]$extensions_installed_list = @()
     $extensions_installed = Get-ChildItem -LiteralPath $PathInstalledExtensions
-    foreach ($ext_inst in $extensions_installed) {
-        if ($ext_inst.Name -ne "extensions.json") {
-            $extension_name = $($ext_inst.Name).Substring(0, $($ext_inst.Name).lastIndexOf('-'))
-            $extension_version = $ext_inst.Name.Split('-')[-1]
+    $extensionsUpdated = 0
+    foreach ($extension in $extensions_installed) {
+        if ($extension.Name -ne "extensions.json") {
+            $extension_name = $($extension.Name).Substring(0, $($extension.Name).lastIndexOf('-'))
+            $extension_version = $extension.Name.Split('-')[-1]
             $extension_hashtable = [ordered]@{
                 "uid"     = $extension_name;
                 "version" = $extension_version 
             };
-            [void]$extensions_list.Add($extension_hashtable)
+            [void]$extensions_installed_list.Add($extension_hashtable)
     
-            Compress-Archive -Path $ext_inst.FullName -DestinationPath "$PathArchivedExtensions/$($ext_inst.Name).zip"
+            Compress-Archive -Path $extension.FullName -DestinationPath "$PathArchivedExtensions/$($extension.Name).zip"
+
+            foreach ($currentExtension in $currentExtensions.extensions) {
+                if ($currentExtension.uid -eq $extension_name -and $currentExtension.version -eq $extension_version) {
+                    $extensionsUdated += 1
+                }                
+            }
         }
     }
     
-    return $extensions_list
+    if ($extensionsUpdated -gt 0) {
+        return $extensions_installed_list
+    }
+    else {
+        return @()
+    }
 }
 
 function Set-ExtensionsJson {
@@ -96,7 +112,7 @@ function New-ReleaseVersion {
     
     $newReleaseVersionHashtable = @{
         "appVersion" = $applicationHashTable.applications.version;
-        "iteration" = "$nextIteration"
+        "iteration"  = "$nextIteration"
     }
     $newReleaseVersionJson = $( $newReleaseVersionHashtable | ConvertTo-Json)
     $newReleaseVersionJson | Set-Content $PathReleaseVersion
