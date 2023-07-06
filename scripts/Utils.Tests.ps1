@@ -25,7 +25,10 @@ Describe 'New-ExtensionArchive' {
             [ordered]@{"uid" = "developer3.extension3"; "version" = "1.0.0" }
         )
 
-        $resultExtensionList = New-ExtensionArchive -PathInstalledExtensions "installed" -PathArchivedExtensions "archived"
+        $resultExtensionList = New-ExtensionArchive `
+            -PathInstalledExtensions "installed" `
+            -PathArchivedExtensions "archived"
+
         $resultExtensionList.Count | Should -Be $expectedExtensionList.Count
         $resultExtensionList[0].uid | Should -Be $expectedExtensionList[0].uid
         $resultExtensionList[0].version | Should -Be $expectedExtensionList[0].version
@@ -106,7 +109,7 @@ Describe 'New-ReleaseVersion' {
     BeforeEach {
         $releaseVersionHashtable = @{
             "appVersion" = "1.0.0";
-            "iteration" = "0"
+            "iteration"  = "0"
         }
         $releaseVersionJson = $( $releaseVersionHashtable | ConvertTo-Json)
         $releaseVersionJson | Set-Content "release_version_test.json"
@@ -155,6 +158,78 @@ Describe 'New-ReleaseVersion' {
         if (Test-Path "applications_test.json") {
             Remove-Item "applications_test.json"
         } }
+}
+
+Describe 'Confirm-UpdatedExtensions' {
+    BeforeEach {
+        if (!(Test-Path "installed")) {
+            New-Item -ItemType Directory -Path "installed" 
+        }
+        $global:directory1 = New-Item -ItemType Directory -Path "installed" -Name "developer1.extension1-1.1.0"
+        $global:file1 = New-Item -ItemType File -Path $directory1 -Name "file1.txt"
+        $global:directory2 = New-Item -ItemType Directory -Path "installed" -Name "developer2.extension2-1.0.0"
+        $global:file2 = New-Item -ItemType File -Path $directory2 -Name "file2.txt"
+        $global:directory3 = New-Item -ItemType Directory -Path "installed" -Name "developer3.extension3-1.0.0"
+        $global:file3 = New-Item -ItemType File -Path $directory3 -Name "file3.txt"
+    }
+
+    It 'Given path of installed extensions, exensions.json with same versions - returns $False' {
+        $extensionsTestJson = @{
+            'extensions' = @(
+                @{
+                    'uid' = 'developer1.extension1';
+                    'version' = '1.1.0'
+                },
+                @{
+                    'uid' = 'developer2.extension2';
+                    'version' = '1.0.0'
+                },
+                @{
+                    'uid' = 'developer3.extension3';
+                    'version' = '1.0.0'
+                }
+            )
+        } | ConvertTo-Json
+        $extensionsTestJsonPath = "$PSScriptRoot\..\extensionsTest.json"
+        $extensionsTestJson | Set-Content $extensionsTestJsonPath
+
+        $hasUpdatedExtensions = Confirm-UpdatedExtensions `
+            -PathInstalledExtensions "installed" `
+            -PathExtensionsJson "$extensionsTestJsonPath"
+        $hasUpdatedExtensions | Should -Be $False
+    }
+
+    It 'Given path of installed extensions, exensions.json with older versions - returns $True' {
+        $extensionsTestJson = @{
+            'extensions' = @(
+                @{
+                    'uid' = 'developer1.extension1';
+                    'version' = '1.0.0'
+                },
+                @{
+                    'uid' = 'developer2.extension2';
+                    'version' = '1.0.0'
+                },
+                @{
+                    'uid' = 'developer3.extension3';
+                    'version' = '1.0.0'
+                }
+            )
+        } | ConvertTo-Json
+        $extensionsTestJsonPath = "$PSScriptRoot\..\extensionsTest.json"
+        $extensionsTestJson | Set-Content $extensionsTestJsonPath
+
+        $hasUpdatedExtensions = Confirm-UpdatedExtensions `
+            -PathInstalledExtensions "installed" `
+            -PathExtensionsJson "$extensionsTestJsonPath"
+        $hasUpdatedExtensions | Should -Be $True
+    }
+
+    AfterEach {
+        if (Test-Path "installed") {
+            Remove-Item -Recurse -Path "installed"
+        }
+    }
 }
 
 AfterAll {

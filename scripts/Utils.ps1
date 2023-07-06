@@ -6,16 +6,11 @@ function New-ExtensionArchive {
         $PathInstalledExtensions,
         [ValidateNotNullOrEmpty()]
         [String]
-        $PathArchivedExtensions,
-        [ValidateNotNullOrEmpty()]
-        [String]
-        $PathExtensionsJson
+        $PathArchivedExtensions
     )
 
-    [System.Collections.HashTable]$currentExtensions = (Get-Content -LiteralPath $PathExtensionsJson | ConvertFrom-Json)
     [System.Collections.ArrayList]$extensions_installed_list = @()
     $extensions_installed = Get-ChildItem -LiteralPath $PathInstalledExtensions
-    $extensionsUpdated = 0
     foreach ($extension in $extensions_installed) {
         if ($extension.Name -ne "extensions.json") {
             $extension_name = $($extension.Name).Substring(0, $($extension.Name).lastIndexOf('-'))
@@ -27,21 +22,10 @@ function New-ExtensionArchive {
             [void]$extensions_installed_list.Add($extension_hashtable)
     
             Compress-Archive -Path $extension.FullName -DestinationPath "$PathArchivedExtensions/$($extension.Name).zip"
-
-            foreach ($currentExtension in $currentExtensions.extensions) {
-                if ($currentExtension.uid -eq $extension_name -and $currentExtension.version -eq $extension_version) {
-                    $extensionsUdated += 1
-                }                
-            }
         }
     }
     
-    if ($extensionsUpdated -gt 0) {
-        return $extensions_installed_list
-    }
-    else {
-        return @()
-    }
+    return $extensions_installed_list
 }
 
 function Set-ExtensionsJson {
@@ -119,4 +103,43 @@ function New-ReleaseVersion {
     $newReleaseVersion = "$($newReleaseVersionHashtable.appVersion)-$($newReleaseVersionHashtable.iteration)"
     
     return $newReleaseVersion
+}
+
+function Confirm-UpdatedExtensions {
+    [CmdletBinding()]
+    param (
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PathInstalledExtensions,
+        [ValidateNotNullOrEmpty()]
+        [String]
+        $PathExtensionsJson
+    )
+    $extensionsUpdated = 0
+    $currentExtensions = (Get-Content -LiteralPath $PathExtensionsJson | ConvertFrom-Json).extensions
+    $extensions_installed = Get-ChildItem -LiteralPath $PathInstalledExtensions -Directory
+    foreach ($extension in $extensions_installed) {
+        # if ($extension.Name -ne "extensions.json") {
+        $extension_name = $($extension.Name).Substring(0, $($extension.Name).lastIndexOf('-'))
+        $extension_version = $extension.Name.Split('-')[-1]
+        # }
+        foreach ($currentExtension in $currentExtensions) {
+            if ($currentExtension.uid -eq $extension_name) {
+                if ($currentExtension.version -eq $extension_version) {
+                    # not updated
+                }
+                else {
+                    $extensionsUpdated += 1
+                }
+            }
+        }
+    }
+        
+    if ($extensionsUpdated -gt 0) {
+        return $True
+    }
+    else {
+        return $False
+    }
+
 }
