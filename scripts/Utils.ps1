@@ -76,6 +76,9 @@ function New-ReleaseVersion {
     [CmdletBinding()]
     param (
         [ValidateNotNullOrEmpty()]
+        [Bool]
+        $HasUpdatedExtensions,
+        [ValidateNotNullOrEmpty()]
         [String]
         $PathApplicationsJson,
         [ValidateNotNullOrEmpty()]
@@ -85,7 +88,7 @@ function New-ReleaseVersion {
 
     $applicationHashTable = (Get-Content -LiteralPath $PathApplicationsJson | ConvertFrom-Json)
     $currentReleaseVersionHashtable = (Get-Content -LiteralPath $PathReleaseVersion | ConvertFrom-Json)
-    if ($currentReleaseVersionHashtable.appVersion -eq $applicationHashTable.applications.version) {
+    if ($currentReleaseVersionHashtable.appVersion -eq $applicationHashTable.applications.version -and $HasUpdatedExtensions) {
         $iteration = $currentReleaseVersionHashtable.iteration
         $iteration = $iteration -as [Int]
         $nextIteration = $iteration + 1

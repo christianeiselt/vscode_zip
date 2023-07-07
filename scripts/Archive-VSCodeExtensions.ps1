@@ -7,7 +7,7 @@ $hasUpdatedExtensions = Confirm-UpdatedExtensions `
 if ($hasUpdatedExtensions) {
     [System.Collections.ArrayList]$extensionList = New-ExtensionArchive `
         -PathInstalledExtensions "C:\Users\runneradmin\.vscode\extensions" `
-        -PathArchivedExtensions ".\vscode\extensions" `
+        -PathArchivedExtensions ".\vscode\extensions"
     
     # Save extension versions as json to file
     Set-ExtensionsJson `
@@ -21,7 +21,8 @@ if ($hasUpdatedExtensions) {
     # Create release version file
     New-ReleaseVersion `
         -PathApplicationsJson "./applications.json" `
-        -PathReleaseVersion "./release_version.json"
+        -PathReleaseVersion "./release_version.json" `
+        -HasUpdatedExtensions $hasUpdatedExtensions
         
     Compress-Archive `
         -Path "vscode" `
@@ -31,6 +32,6 @@ else {
     # Create release version file
     New-ReleaseVersion `
         -PathApplicationsJson "./applications.json" `
-        -PathReleaseVersion "./release_version.json"
-
+        -PathReleaseVersion "./release_version.json" `
+        -HasUpdatedExtensions $hasUpdatedExtensions
 }
