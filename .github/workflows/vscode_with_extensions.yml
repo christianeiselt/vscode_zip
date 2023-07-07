@@ -18,15 +18,6 @@ jobs:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
 
-      # - name: Print working directory
-      #   run: pwd
-      # - name: List directory content
-      #   run: dir
-      # - name: Save tree file for C to artifact
-      #   run: powershell -command "tree /f /a c:\ > vscode/tree_C.txt"
-      # - name: Save tree file for D to artifact
-      #   run: powershell -command "tree /f /a d:\ > vscode/tree_D.txt"
-
       # Get current release version
       - name: Get current release version
         id: current_release
@@ -79,24 +70,16 @@ jobs:
           asset_name: vscode_with_extensions.zip
           asset_content_type: application/zip
         if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
-
-      # - name: Archive Data Directory
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: data-artifact
-      #     path: vscode
   
       - name: Remove artifact directory
         run: |
-          Remove-Item -recurse -force vscode
-          Remove-Item vscode_with_extensions.zip
-  
-      # - name: List directory tree
-      #   run: tree /f /a
+          if (Test-Path vscode){Remove-Item -recurse -force vscode}
+          if (Test-Path vscode_with_extensions.zip){Remove-Item vscode_with_extensions.zip}
   
       - name: GitHub Commit & Push
         uses: actions-js/push@v1.4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+        if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
   
   
