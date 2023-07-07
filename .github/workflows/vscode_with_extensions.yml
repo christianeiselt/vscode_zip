@@ -53,8 +53,8 @@ jobs:
 
       - name: List release versions
         run: |
-          echo "Current Release: '${{ steps.current_release.outputs.current_release_version }}'"
-          echo "New Release: '${{ steps.archive_extensions.outputs.new_release_version }}'"
+          echo "Current Release: ${{ steps.current_release.outputs.current_release_version }}"
+          echo "New Release: ${{ steps.archive_extensions.outputs.new_release_version }}"
 
       - name: Create release
         uses: actions/create-release@v1
@@ -67,7 +67,7 @@ jobs:
           # body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        if: ne(${{ steps.archive_extensions.outputs.new_release_version }},'') and ne(${{ steps.current_release.outputs.current_release_version }}, ${{ steps.archive_extensions.outputs.new_release_version }})
+        if: ne(${{ steps.current_release.outputs.current_release_version }}, ${{ steps.archive_extensions.outputs.new_release_version }})
 
       - name: upload artifact as release asset
         uses: actions/upload-release-asset@v1

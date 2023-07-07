@@ -17,7 +17,7 @@ if ($hasUpdatedExtensions) {
     # Save vscode version as json to file
     Set-ApplicationsJson `
         -Path "./applications.json" | Out-Null
-        
+
     # Create release version file
     New-ReleaseVersion `
         -PathApplicationsJson "./applications.json" `
@@ -26,4 +26,11 @@ if ($hasUpdatedExtensions) {
     Compress-Archive `
         -Path "vscode" `
         -DestinationPath "./vscode_with_extensions.zip"
+}
+else {
+    # Create release version file
+    New-ReleaseVersion `
+        -PathApplicationsJson "./applications.json" `
+        -PathReleaseVersion "./release_version.json"
+
 }
