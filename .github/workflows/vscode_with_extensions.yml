@@ -78,7 +78,7 @@ jobs:
           asset_path: vscode_with_extensions.zip
           asset_name: vscode_with_extensions.zip
           asset_content_type: application/zip
-        if: ne(${{ steps.current_release.outputs.current_release_version }}, ${{ steps.archive_extensions.outputs.new_release_version }})
+        if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
 
       # - name: Archive Data Directory
       #   uses: actions/upload-artifact@v3
