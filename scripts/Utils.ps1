@@ -93,8 +93,12 @@ function New-ReleaseVersion {
         $iteration = $iteration -as [Int]
         $nextIteration = $iteration + 1
     }
-    else {
+    elseif ($currentReleaseVersionHashtable.appVersion -ne $applicationHashTable.applications.version)
+    {
         $nextIteration = 0
+    }
+    else {
+        $nextIteration = $currentReleaseVersionHashtable.iteration
     }
     
     $newReleaseVersionHashtable = @{
