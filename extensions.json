@@ -6,7 +6,7 @@
     },
     {
       "uid": "bscan.perlnavigator",
-      "version": "0.5.5"
+      "version": "0.5.9"
     },
     {
       "uid": "christian-kohler.path-intellisense",
@@ -106,7 +106,7 @@
     },
     {
       "uid": "pspester.pester-test",
-      "version": "2023.4.0"
+      "version": "2023.7.0"
     },
     {
       "uid": "puppet.puppet-vscode",
