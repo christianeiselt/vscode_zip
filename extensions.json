@@ -70,7 +70,7 @@
     },
     {
       "uid": "ms-python.vscode-pylance",
-      "version": "2023.7.20"
+      "version": "2023.7.30"
     },
     {
       "uid": "ms-toolsai.jupyter-keymap",
@@ -122,7 +122,7 @@
     },
     {
       "uid": "redhat.vscode-yaml",
-      "version": "1.13.0"
+      "version": "1.14.0"
     },
     {
       "uid": "ritwickdey.liveserver",
