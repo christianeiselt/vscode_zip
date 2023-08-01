@@ -26,7 +26,7 @@
     },
     {
       "uid": "esbenp.prettier-vscode",
-      "version": "9.19.0"
+      "version": "10.1.0"
     },
     {
       "uid": "firefox-devtools.vscode-firefox-debug",
@@ -106,7 +106,7 @@
     },
     {
       "uid": "pspester.pester-test",
-      "version": "2023.7.6"
+      "version": "2023.7.7"
     },
     {
       "uid": "puppet.puppet-vscode",
