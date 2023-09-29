@@ -70,7 +70,7 @@
     },
     {
       "uid": "ms-python.vscode-pylance",
-      "version": "2023.9.20"
+      "version": "2023.9.30"
     },
     {
       "uid": "ms-toolsai.jupyter-keymap",
@@ -155,10 +155,6 @@
     {
       "uid": "visualstudioexptteam.vscodeintellicode",
       "version": "1.2.30"
-    },
-    {
-      "uid": "vivaxy.vscode-conventional-commits",
-      "version": "1.25.0"
     },
     {
       "uid": "vscode-icons-team.vscode-icons",
