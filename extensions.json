@@ -161,6 +161,10 @@
       "version": "1.2.30"
     },
     {
+      "uid": "vivaxy.vscode-conventional-commits",
+      "version": "1.10.0"
+    },
+    {
       "uid": "vscode-icons-team.vscode-icons",
       "version": "12.7.0"
     },
