@@ -41,6 +41,11 @@
       "version": "1.18.0"
     },
     {
+      "uid": "lehni.vscode-fix-checksums",
+      "version": ""
+      
+    },
+    {
       "uid": "mhutchie.git-graph",
       "version": "1.30.0"
     },
