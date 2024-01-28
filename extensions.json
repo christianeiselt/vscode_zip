@@ -2,7 +2,7 @@
   "extensions": [
     {
       "uid": "aliasadidev.nugetpackagemanagergui",
-      "version": ""
+      "version": "2.0.6"
     },
     {
       "uid": "bscan.perlnavigator",
