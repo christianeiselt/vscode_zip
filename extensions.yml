@@ -1,5 +1,6 @@
 extensions:
-- NPM_GUI_VERSION=v2.0.5 # renovate: datasource=github-releases depName=aliasadidev/vscode-npm-gui
+- NG_VERSION=v2.0.5 # renovate: datasource=github-releases depName=aliasadidev/vscode-npm-gui
+- PN_VERSION=v0.7.13 # renovate: datasource=github-releases depName=bscan/PerlNavigator
 # - bscan/PerlNavigator@v0.7.13
 # - ChristianKohler/PathIntellisense@v2.8.0
 # - DavidAnson/vscode-markdownlint@v0.54.0
