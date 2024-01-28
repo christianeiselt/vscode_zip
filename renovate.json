@@ -10,7 +10,7 @@
         "^extensions.yml$"
       ],
       "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s-\\s.*?_VERSION=(?<currentValue>.*)\\s"
+        "- .*_VERSION=(?<currentValue>.*) # renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
