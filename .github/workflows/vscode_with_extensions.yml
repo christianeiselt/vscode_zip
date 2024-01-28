@@ -47,6 +47,11 @@ jobs:
           echo "${{ steps.current_release.outputs.current_release_version }} (Current Release)"
           echo "${{ steps.archive_extensions.outputs.new_release_version }} (New Release)"
 
+      - name: Update Changelog
+        run: |
+          git diff HEAD^ HEAD ./extensions.json > CHANGELOG.md
+        id: diff
+
       - name: Create release
         uses: actions/create-release@v1
         id: create_release
@@ -55,11 +60,11 @@ jobs:
           prerelease: false
           release_name: ${{ steps.archive_extensions.outputs.new_release_version }}
           tag_name: ${{ steps.archive_extensions.outputs.new_release_version }}
-          # body_path: CHANGELOG.md
+          body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ github.token }}
         if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
-
+  
       - name: upload artifact as release asset
         uses: actions/upload-release-asset@v1
         env:
@@ -70,7 +75,7 @@ jobs:
           asset_name: "vscode_with_extensions-release_${{ steps.archive_extensions.outputs.new_release_version }}.zip"
           asset_content_type: application/zip
         if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
-  
+
       - name: Remove artifact directory
         run: |
           if (Test-Path vscode){Remove-Item -recurse -force vscode}
