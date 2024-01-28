@@ -19,7 +19,7 @@ jobs:
       - uses: gitkraken/vscode-gitlens@v14.7.0
       - uses: glideapps/quicktype@v7.0.0
       - uses: Gruntfuggly/todo-tree
-      - uses: jdinhify/vscode-theme-gruvbox@v1.17.0
+      - uses: jdinhify/vscode-theme-gruvbox@v1.18.0
       - uses: mhutchie/vscode-git-graph@v1.30.0
       - uses: microsoft/pylance-release
       - uses: microsoft/vscode-notepadplusplus-keybindings@v1.0.3
