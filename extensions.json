@@ -6,7 +6,7 @@
     },
     {
       "uid": "bscan.perlnavigator",
-      "version": "0.8.0"
+      "version": "0.8.1"
     },
     {
       "uid": "christian-kohler.path-intellisense",
@@ -58,7 +58,7 @@
     },
     {
       "uid": "ms-python.python",
-      "version": "2024.0.0"
+      "version": "2024.0.1"
     },
     {
       "uid": "ms-python.vscode-pylance",
