@@ -22,7 +22,7 @@
     },
     {
       "uid": "eamodio.gitlens",
-      "version": "14.7.0"
+      "version": "14.8.0"
     },
     {
       "uid": "esbenp.prettier-vscode",
@@ -62,7 +62,7 @@
     },
     {
       "uid": "ms-python.vscode-pylance",
-      "version": "2023.12.1"
+      "version": "2024.2.1"
     },
     {
       "uid": "ms-vscode.notepadplusplus-keybindings",
