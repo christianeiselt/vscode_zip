@@ -9,10 +9,6 @@
       "version": "0.54.0"
     },
     {
-      "uid": "PascalReitermann93.vscode-yaml-sort",
-      "version": ""
-    },
-    {
       "uid": "eamodio.gitlens",
       "version": "14.8.0"
     },
@@ -39,6 +35,10 @@
     {
       "uid": "oderwat.indent-rainbow",
       "version": "8.3.1"
+    },
+    {
+      "uid": "pascalreitermann93.vscode-yaml-sort",
+      "version": "6.5.14"
     },
     {
       "uid": "pspester.pester-test",
