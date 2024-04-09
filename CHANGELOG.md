@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 515f560..3f17864 100644
+index 3f17864..d90de52 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -38,7 +38,7 @@
+@@ -2,7 +2,7 @@
+   "extensions": [
+     {
+       "uid": "bscan.perlnavigator",
+-      "version": "0.8.3"
++      "version": "0.8.12"
      },
      {
-       "uid": "pascalreitermann93.vscode-yaml-sort",
--      "version": "6.5.15"
-+      "version": "6.5.16"
-     },
-     {
-       "uid": "pspester.pester-test",
+       "uid": "davidanson.vscode-markdownlint",
