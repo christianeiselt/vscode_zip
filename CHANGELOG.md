@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 3f17864..d90de52 100644
+index d90de52..5dab8db 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -2,7 +2,7 @@
-   "extensions": [
-     {
-       "uid": "bscan.perlnavigator",
--      "version": "0.8.3"
-+      "version": "0.8.12"
+@@ -30,7 +30,7 @@
      },
      {
-       "uid": "davidanson.vscode-markdownlint",
+       "uid": "ms-vscode.powershell",
+-      "version": "2024.0.0"
++      "version": "2024.2.0"
+     },
+     {
+       "uid": "oderwat.indent-rainbow",
