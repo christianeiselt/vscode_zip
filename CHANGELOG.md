@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index ae0013a..ebafad6 100644
+index ebafad6..1770bd7 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -38,7 +38,7 @@
+@@ -46,7 +46,7 @@
      },
      {
-       "uid": "pascalreitermann93.vscode-yaml-sort",
--      "version": "6.5.16"
-+      "version": "6.5.17"
+       "uid": "rangav.vscode-thunder-client",
+-      "version": "2.21.16"
++      "version": "2.21.18"
      },
      {
-       "uid": "pspester.pester-test",
+       "uid": "redhat.vscode-yaml",
