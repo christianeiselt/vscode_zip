@@ -10,7 +10,7 @@
     },
     {
       "uid": "eamodio.gitlens",
-      "version": "14.9.1"
+      "version": "15.0.3"
     },
     {
       "uid": "esbenp.prettier-vscode",
@@ -30,7 +30,7 @@
     },
     {
       "uid": "ms-vscode.powershell",
-      "version": "2024.2.1"
+      "version": "2024.2.2"
     },
     {
       "uid": "oderwat.indent-rainbow",
@@ -46,7 +46,7 @@
     },
     {
       "uid": "rangav.vscode-thunder-client",
-      "version": "2.23.0"
+      "version": "2.23.2"
     },
     {
       "uid": "redhat.vscode-yaml",
