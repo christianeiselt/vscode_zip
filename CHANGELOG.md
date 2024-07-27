@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 9751b51..07ee754 100644
+index 07ee754..a35cdfd 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -26,7 +26,7 @@
+@@ -10,7 +10,7 @@
      },
      {
-       "uid": "jdinhlife.gruvbox",
--      "version": "1.19.0"
-+      "version": "1.19.1"
+       "uid": "eamodio.gitlens",
+-      "version": "15.2.0"
++      "version": "15.2.1"
      },
      {
-       "uid": "ms-vscode.powershell",
+       "uid": "esbenp.prettier-vscode",
