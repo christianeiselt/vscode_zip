@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 641793a..91de118 100644
+index 91de118..c71a836 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -14,7 +14,7 @@
+@@ -10,7 +10,7 @@
+     },
+     {
+       "uid": "eamodio.gitlens",
+-      "version": "15.2.3"
++      "version": "15.3.0"
      },
      {
        "uid": "esbenp.prettier-vscode",
--      "version": "10.4.0"
-+      "version": "11.0.0"
-     },
-     {
-       "uid": "formulahendry.auto-close-tag",
