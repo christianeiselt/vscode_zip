@@ -6,7 +6,7 @@
     },
     {
       "uid": "davidanson.vscode-markdownlint",
-      "version": "0.56.0"
+      "version": "0.57.0"
     },
     {
       "uid": "eamodio.gitlens",
@@ -46,7 +46,7 @@
     },
     {
       "uid": "rangav.vscode-thunder-client",
-      "version": "2.29.13"
+      "version": "2.29.15"
     },
     {
       "uid": "redhat.vscode-yaml",
