@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 08ce7f3..997697c 100644
+index 997697c..d3a7311 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -26,7 +26,7 @@
+@@ -70,7 +70,7 @@
      },
      {
-       "uid": "jdinhlife.gruvbox",
--      "version": "1.21.0"
-+      "version": "1.22.0"
+       "uid": "vscode-icons-team.vscode-icons",
+-      "version": "12.10.0"
++      "version": "12.11.0"
      },
      {
-       "uid": "ms-vscode.powershell",
+       "uid": "yzhang.markdown-all-in-one",
