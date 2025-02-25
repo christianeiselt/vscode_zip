@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 02664f5..637700c 100644
+index 637700c..fe01ba6 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -6,7 +6,7 @@
-     },
-     {
-       "uid": "davidanson.vscode-markdownlint",
--      "version": "0.58.2"
-+      "version": "0.59.0"
+@@ -10,7 +10,7 @@
      },
      {
        "uid": "eamodio.gitlens",
+-      "version": "16.3.0"
++      "version": "16.3.2"
+     },
+     {
+       "uid": "esbenp.prettier-vscode",
