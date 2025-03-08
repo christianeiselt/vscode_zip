@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index ddc104d..d1e7489 100644
+index d1e7489..d6f83b3 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -26,7 +26,7 @@
+@@ -50,7 +50,7 @@
      },
      {
-       "uid": "jdinhlife.gruvbox",
--      "version": "1.22.0"
-+      "version": "1.24.2"
+       "uid": "redhat.vscode-yaml",
+-      "version": "1.16.0"
++      "version": "1.17.0"
      },
      {
-       "uid": "ms-vscode.powershell",
+       "uid": "shardulm94.trailing-spaces",
