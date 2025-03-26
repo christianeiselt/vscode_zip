@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 2585a5d..7d1a246 100644
+index 7d1a246..c97864e 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -10,7 +10,7 @@
+@@ -38,7 +38,7 @@
      },
      {
-       "uid": "eamodio.gitlens",
--      "version": "16.3.2"
-+      "version": "16.3.3"
+       "uid": "pascalreitermann93.vscode-yaml-sort",
+-      "version": "6.6.1"
++      "version": "6.6.2"
      },
      {
-       "uid": "esbenp.prettier-vscode",
+       "uid": "pspester.pester-test",
