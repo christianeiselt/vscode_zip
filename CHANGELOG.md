@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index c97864e..cff1e01 100644
+index cff1e01..27a7815 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -46,7 +46,7 @@
+@@ -70,7 +70,7 @@
      },
      {
-       "uid": "rangav.vscode-thunder-client",
--      "version": "2.34.2"
-+      "version": "2.34.3"
+       "uid": "vscode-icons-team.vscode-icons",
+-      "version": "12.11.0"
++      "version": "12.12.0"
      },
      {
-       "uid": "redhat.vscode-yaml",
+       "uid": "yzhang.markdown-all-in-one",
