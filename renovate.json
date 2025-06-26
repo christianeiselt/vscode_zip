@@ -1,13 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^extensions.yml$"
+      "managerFilePatterns": [
+        "/^extensions.yml$/"
       ],
       "matchStrings": [
         "- .*_VERSION=(?<currentValue>.*) # renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)"
