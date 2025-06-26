@@ -1,6 +1,10 @@
 {
   "extensions": [
     {
+      "uid": "redhat.vscode-xml",
+      "version": ""
+    },
+    {
       "uid": "bscan.perlnavigator",
       "version": "0.8.15"
     },
