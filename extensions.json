@@ -1,10 +1,6 @@
 {
   "extensions": [
     {
-      "uid": "redhat.vscode-xml",
-      "version": "0.29.0"
-    },
-    {
       "uid": "bscan.perlnavigator",
       "version": "0.8.15"
     },
@@ -14,7 +10,7 @@
     },
     {
       "uid": "eamodio.gitlens",
-      "version": "17.2.0"
+      "version": "17.2.1"
     },
     {
       "uid": "esbenp.prettier-vscode",
@@ -51,6 +47,10 @@
     {
       "uid": "rangav.vscode-thunder-client",
       "version": "2.35.2"
+    },
+    {
+      "uid": "redhat.vscode-xml-0.29.0-win32",
+      "version": "x64"
     },
     {
       "uid": "redhat.vscode-yaml",
