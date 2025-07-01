@@ -30,7 +30,7 @@
     },
     {
       "uid": "ms-vscode.powershell",
-      "version": "2025.0.0"
+      "version": "2025.2.0"
     },
     {
       "uid": "oderwat.indent-rainbow",
@@ -47,10 +47,6 @@
     {
       "uid": "rangav.vscode-thunder-client",
       "version": "2.35.2"
-    },
-    {
-      "uid": "redhat.vscode-xml-0.29.0-win32",
-      "version": "x64"
     },
     {
       "uid": "redhat.vscode-yaml",
