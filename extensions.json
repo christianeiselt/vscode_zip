@@ -2,7 +2,7 @@
   "extensions": [
     {
       "uid": "bscan.perlnavigator",
-      "version": "0.8.15"
+      "version": "0.8.18"
     },
     {
       "uid": "davidanson.vscode-markdownlint",
@@ -46,7 +46,7 @@
     },
     {
       "uid": "rangav.vscode-thunder-client",
-      "version": "2.37.1"
+      "version": "2.37.2"
     },
     {
       "uid": "redhat.vscode-yaml",
