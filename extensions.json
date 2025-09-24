@@ -10,7 +10,7 @@
     },
     {
       "uid": "eamodio.gitlens",
-      "version": "17.4.1"
+      "version": "17.5.0"
     },
     {
       "uid": "esbenp.prettier-vscode",
@@ -46,7 +46,7 @@
     },
     {
       "uid": "rangav.vscode-thunder-client",
-      "version": "2.37.7"
+      "version": "2.37.8"
     },
     {
       "uid": "redhat.vscode-yaml",
