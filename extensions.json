@@ -10,7 +10,7 @@
     },
     {
       "uid": "eamodio.gitlens",
-      "version": "17.6.0"
+      "version": "17.6.1"
     },
     {
       "uid": "esbenp.prettier-vscode",
@@ -30,7 +30,7 @@
     },
     {
       "uid": "ms-vscode.powershell",
-      "version": "2025.2.0"
+      "version": "2025.4.0"
     },
     {
       "uid": "oderwat.indent-rainbow",
