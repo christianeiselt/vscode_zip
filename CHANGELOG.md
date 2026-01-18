@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index df61ce0..1ac66c1 100644
+index 1ac66c1..0bfaf0b 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -70,7 +70,7 @@
+@@ -14,7 +14,7 @@
      },
      {
-       "uid": "vscode-icons-team.vscode-icons",
--      "version": "12.16.0"
-+      "version": "12.17.0"
+       "uid": "esbenp.prettier-vscode",
+-      "version": "11.0.2"
++      "version": "12.1.0"
      },
      {
-       "uid": "yzhang.markdown-all-in-one",
+       "uid": "formulahendry.auto-close-tag",
