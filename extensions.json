@@ -10,7 +10,7 @@
     },
     {
       "uid": "eamodio.gitlens",
-      "version": "17.10.1"
+      "version": "17.10.2"
     },
     {
       "uid": "esbenp.prettier-vscode",
@@ -50,7 +50,7 @@
     },
     {
       "uid": "redhat.vscode-yaml",
-      "version": "1.20.0"
+      "version": "1.21.0"
     },
     {
       "uid": "shardulm94.trailing-spaces",
