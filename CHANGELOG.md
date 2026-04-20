@@ -1,13 +1,13 @@
 diff --git a/extensions.json b/extensions.json
-index 434b02b..5fd54fd 100644
+index 5fd54fd..eabd55b 100644
 --- a/extensions.json
 +++ b/extensions.json
-@@ -10,7 +10,7 @@
+@@ -46,7 +46,7 @@
      },
      {
-       "uid": "eamodio.gitlens",
--      "version": "17.12.0"
-+      "version": "17.12.1"
+       "uid": "rangav.vscode-thunder-client",
+-      "version": "2.40.8"
++      "version": "2.40.10"
      },
      {
-       "uid": "esbenp.prettier-vscode",
+       "uid": "redhat.vscode-yaml",
