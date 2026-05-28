@@ -5,6 +5,10 @@
       "version": "0.8.21"
     },
     {
+      "uid": "saoudrizwan.claude-dev",
+      "version": "3.85.0"
+    },
+    {
       "uid": "davidanson.vscode-markdownlint",
       "version": "0.61.2"
     },
