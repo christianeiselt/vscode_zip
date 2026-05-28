@@ -126,19 +126,17 @@ function Confirm-UpdatedExtensions {
     $currentExtensions = (Get-Content -LiteralPath $PathExtensionsJson | ConvertFrom-Json).extensions
     $extensions_installed = Get-ChildItem -LiteralPath $PathInstalledExtensions -Directory
     foreach ($extension in $extensions_installed) {
-        # if ($extension.Name -ne "extensions.json") {
         $extension_name = $($extension.Name).Substring(0, $($extension.Name).lastIndexOf('-'))
         $extension_version = $extension.Name.Split('-')[-1]
-        # }
-        foreach ($currentExtension in $currentExtensions) {
-            if ($currentExtension.uid -eq $extension_name) {
-                if ($currentExtension.version -eq $extension_version) {
-                    # not updated
-                }
-                else {
-                    $extensionsUpdated += 1
-                }
-            }
+        $matchingCurrentExtension = $currentExtensions | Where-Object { $_.uid -eq $extension_name } | Select-Object -First 1
+
+        if ($null -eq $matchingCurrentExtension) {
+            $extensionsUpdated += 1
+            continue
+        }
+
+        if ($matchingCurrentExtension.version -ne $extension_version) {
+            $extensionsUpdated += 1
         }
     }
         

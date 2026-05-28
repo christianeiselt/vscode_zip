@@ -128,7 +128,7 @@ Describe 'New-ReleaseVersion' {
         $applicationsJson = $( $applicationsHashtable | ConvertTo-Json)
         $applicationsJson | Set-Content "applications_test.json"
         $expectedReleaseVersion = "1.0.0-1"
-        $resultReleaseVersion = New-ReleaseVersion -PathApplicationsJson "applications_test.json" -PathReleaseVersion "release_version_test.json"
+        $resultReleaseVersion = New-ReleaseVersion -PathApplicationsJson "applications_test.json" -PathReleaseVersion "release_version_test.json" -HasUpdatedExtensions $True
         
         $resultReleaseVersion | Should -Be $expectedReleaseVersion
     }
@@ -146,7 +146,7 @@ Describe 'New-ReleaseVersion' {
         $applicationsJson = $( $applicationsHashtable | ConvertTo-Json)
         $applicationsJson | Set-Content "applications_test.json"
         $expectedReleaseVersion = "1.1.0-0"
-        $resultReleaseVersion = New-ReleaseVersion -PathApplicationsJson "applications_test.json" -PathReleaseVersion "release_version_test.json"
+        $resultReleaseVersion = New-ReleaseVersion -PathApplicationsJson "applications_test.json" -PathReleaseVersion "release_version_test.json" -HasUpdatedExtensions $False
         
         $resultReleaseVersion | Should -Be $expectedReleaseVersion
     }
@@ -212,6 +212,28 @@ Describe 'Confirm-UpdatedExtensions' {
                 },
                 @{
                     'uid' = 'developer3.extension3';
+                    'version' = '1.0.0'
+                }
+            )
+        } | ConvertTo-Json
+        $extensionsTestJsonPath = "$PSScriptRoot\..\extensionsTest.json"
+        $extensionsTestJson | Set-Content $extensionsTestJsonPath
+
+        $hasUpdatedExtensions = Confirm-UpdatedExtensions `
+            -PathInstalledExtensions "installed" `
+            -PathExtensionsJson "$extensionsTestJsonPath"
+        $hasUpdatedExtensions | Should -Be $True
+    }
+
+    It 'Given path of installed extensions, exensions.json without a newly added extension - returns $True' {
+        $extensionsTestJson = @{
+            'extensions' = @(
+                @{
+                    'uid' = 'developer1.extension1';
+                    'version' = '1.1.0'
+                },
+                @{
+                    'uid' = 'developer2.extension2';
                     'version' = '1.0.0'
                 }
             )
