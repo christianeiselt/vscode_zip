@@ -254,6 +254,51 @@ Describe 'Confirm-UpdatedExtensions' {
     }
 }
 
+Describe 'Confirm-UpdatedTrackedFiles' {
+    It 'Given no previous commit, returns $False' {
+        Mock git {
+            $global:LASTEXITCODE = 1
+            return $null
+        } -ParameterFilter { $args[0] -eq 'rev-parse' }
+
+        $hasUpdatedTrackedFiles = Confirm-UpdatedTrackedFiles
+
+        $hasUpdatedTrackedFiles | Should -Be $False
+    }
+
+    It 'Given changed tracked files between refs, returns $True' {
+        Mock git {
+            $global:LASTEXITCODE = 0
+            return 'extensions.json'
+        } -ParameterFilter { $args[0] -eq 'diff' }
+
+        Mock git {
+            $global:LASTEXITCODE = 0
+            return 'HEAD^'
+        } -ParameterFilter { $args[0] -eq 'rev-parse' }
+
+        $hasUpdatedTrackedFiles = Confirm-UpdatedTrackedFiles
+
+        $hasUpdatedTrackedFiles | Should -Be $True
+    }
+
+    It 'Given unchanged tracked files between refs, returns $False' {
+        Mock git {
+            $global:LASTEXITCODE = 0
+            return ''
+        } -ParameterFilter { $args[0] -eq 'diff' }
+
+        Mock git {
+            $global:LASTEXITCODE = 0
+            return 'HEAD^'
+        } -ParameterFilter { $args[0] -eq 'rev-parse' }
+
+        $hasUpdatedTrackedFiles = Confirm-UpdatedTrackedFiles
+
+        $hasUpdatedTrackedFiles | Should -Be $False
+    }
+}
+
 AfterAll {
 
 }

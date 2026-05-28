@@ -112,6 +112,30 @@ function New-ReleaseVersion {
     return $newReleaseVersion
 }
 
+function Confirm-UpdatedTrackedFiles {
+    [CmdletBinding()]
+    param (
+        [String[]]
+        $Paths = @("extensions.json", "applications.json"),
+        [String]
+        $BaseRef = "HEAD^",
+        [String]
+        $HeadRef = "HEAD"
+    )
+
+    $null = git rev-parse --verify $BaseRef 2>$null
+    if ($LASTEXITCODE -ne 0) {
+        return $False
+    }
+
+    $changedFiles = git diff --name-only $BaseRef $HeadRef -- $Paths
+    if ($LASTEXITCODE -ne 0) {
+        return $False
+    }
+
+    return [bool]$changedFiles
+}
+
 function Confirm-UpdatedExtensions {
     [CmdletBinding()]
     param (
@@ -123,6 +147,11 @@ function Confirm-UpdatedExtensions {
         $PathExtensionsJson
     )
     $extensionsUpdated = 0
+
+    if (Confirm-UpdatedTrackedFiles) {
+        return $True
+    }
+
     $currentExtensions = (Get-Content -LiteralPath $PathExtensionsJson | ConvertFrom-Json).extensions
     $extensions_installed = Get-ChildItem -LiteralPath $PathInstalledExtensions -Directory
     foreach ($extension in $extensions_installed) {
