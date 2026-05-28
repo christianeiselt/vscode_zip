@@ -1,10 +1,14 @@
+param(
+    [switch]$ForceArchive
+)
+
 . $PSScriptRoot/Utils.ps1
 
 $hasUpdatedExtensions = Confirm-UpdatedExtensions `
     -PathInstalledExtensions "C:\Users\runneradmin\.vscode\extensions" `
     -PathExtensionsJson "$PSScriptRoot\..\extensions.json"
 
-if ($hasUpdatedExtensions) {
+if ($hasUpdatedExtensions -or $ForceArchive) {
     [System.Collections.ArrayList]$extensionList = New-ExtensionArchive `
         -PathInstalledExtensions "C:\Users\runneradmin\.vscode\extensions" `
         -PathArchivedExtensions ".\vscode\extensions"

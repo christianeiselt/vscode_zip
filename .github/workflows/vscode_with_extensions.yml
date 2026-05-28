@@ -6,6 +6,7 @@ on:
       - main
   schedule:
     - cron: 0 5 * * * # TZ=UTC
+  workflow_dispatch:
 
 jobs:
   build:
@@ -39,8 +40,21 @@ jobs:
         run: ./scripts/Install-VSCodeExtensions.ps1 -AdditionalExtensions $((Get-Content ./extensions.json | ConvertFrom-Json).extensions.uid) -BuildEdition 'Stable-User'
 
       - name: Archive extensions and update extensions.json
-        run: echo "new_release_version=$(./scripts/Archive-VSCodeExtensions.ps1)" >> $env:GITHUB_OUTPUT
         id: archive_extensions
+        run: |
+          $forceArchive = "${{ github.event_name == 'workflow_dispatch' }}" -eq "true"
+          if ($forceArchive) {
+            $newReleaseVersion = ./scripts/Archive-VSCodeExtensions.ps1 -ForceArchive
+          }
+          else {
+            $newReleaseVersion = ./scripts/Archive-VSCodeExtensions.ps1
+          }
+
+          echo "new_release_version=$newReleaseVersion" >> $env:GITHUB_OUTPUT
+
+      - name: Detect created archive
+        id: archive_file
+        run: echo "artifact_exists=$((Test-Path './vscode_with_extensions.zip').ToString().ToLower())" >> $env:GITHUB_OUTPUT
 
       - name: List release versions
         run: |
@@ -75,6 +89,14 @@ jobs:
           asset_name: "vscode_with_extensions-release_${{ steps.archive_extensions.outputs.new_release_version }}.zip"
           asset_content_type: application/zip
         if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
+
+      - name: Upload manual workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: "vscode_with_extensions-${{ steps.archive_extensions.outputs.new_release_version }}-run${{ github.run_number }}"
+          path: "vscode_with_extensions.zip"
+          if-no-files-found: error
+        if: github.event_name == 'workflow_dispatch' && steps.archive_file.outputs.artifact_exists == 'true'
 
       - name: Remove artifact directory
         run: |
