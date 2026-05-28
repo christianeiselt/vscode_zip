@@ -5,10 +5,6 @@
       "version": "0.8.21"
     },
     {
-      "uid": "saoudrizwan.claude-dev",
-      "version": "3.85.0"
-    },
-    {
       "uid": "davidanson.vscode-markdownlint",
       "version": "0.61.2"
     },
@@ -55,6 +51,10 @@
     {
       "uid": "redhat.vscode-yaml",
       "version": "1.23.0"
+    },
+    {
+      "uid": "saoudrizwan.claude-dev",
+      "version": "3.86.0"
     },
     {
       "uid": "shardulm94.trailing-spaces",
