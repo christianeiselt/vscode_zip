@@ -91,7 +91,7 @@ jobs:
         if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
 
       - name: Upload manual workflow artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: "vscode_with_extensions-${{ steps.archive_extensions.outputs.new_release_version }}-run${{ github.run_number }}"
           path: "vscode_with_extensions.zip"
