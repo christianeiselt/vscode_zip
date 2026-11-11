@@ -104,7 +104,7 @@ jobs:
           if (Test-Path vscode_with_extensions.zip){Remove-Item vscode_with_extensions.zip}
   
       - name: GitHub Commit & Push
-        uses: actions-js/push@v1.5
+        uses: actions-js/push@v1.6
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
         if: steps.current_release.outputs.current_release_version != steps.archive_extensions.outputs.new_release_version
